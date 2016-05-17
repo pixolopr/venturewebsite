@@ -1,0 +1,79 @@
+<!--home start-->
+
+<div id="home">
+
+    <div id="menuF" class="fixed transbg">
+        <div class="container" style="">
+            <div class="row">
+                <div class="logo col-md-4">
+                    <div>
+                        <a href="#">
+                            <img src="images/logo.png">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="navmenu" style="text-align: center;">
+                        <ul id="menu" style=" margin-top: 2%;">
+                            <li class="active">Events</li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ <div class="row upspacer toppadding">
+                        
+                        <div class="col-md-offset-4 col-md-4 textcenter downspacer">
+                           <a class="btn btn-info btn-lg btnround" ng-click="gotohome()"><i class="fa fa-home"></i>Go Home</a>
+                    </div>
+                    </div>
+
+<div class="row  col-md-offset-4 col-md-4 textcenter">
+    <button class="btn btn-info-outline btn-md btnstyle">Tag 1</button>
+    <button class="btn btn-info-outline btn-md btnstyle">Tag 2</button>
+    <button class="btn btn-info-outline btn-md btnstyle">Tag 3</button>
+    <button class="btn btn-info-outline btn-md btnstyle">Tag 4</button>
+
+    
+</div>
+                   
+
+                    
+                
+
+
+<div class="row upspacer btnstyle">
+
+    <div class="row ">
+        <div class="row col-md-3 eventsize" ng-repeat="event in events">
+            <div>
+                <img class="img-responsive picsGall eventimage" src="images/eventpic.png" height="300" width="200" />
+            </div>
+            <div class="">
+                <h3 class="eventname">Event Name</h3>
+                <hr class="hrNews">
+                <p class="textcenter" style="color : black;"><i class="fa fa-calendar"></i> 24th April, 2016
+                </p>
+                <p class="textcenter" style="color : black;">
+                    <srong class="eventlabels" style="color : black;">Venue:</srong> Event Venue</p>
+                <p class="textcenter" style="color : black;">
+                    <srong class="eventlabels" style="color : black;">Purpose:</srong> Event Purpose</p>
+                <p class="textcenter" style="color : black;">
+                    <srong class="eventlabels" style="color : black;">Guest Speaker:</srong> Event guest speaker</p>
+                <p class="textcenter" style="color : black;">
+                    <srong class="eventlabels" style="color : black;">Tags:</srong> Event Tag List</p>
+
+            </div>
+        </div>
+
+
+
+    </div>
+  <div class="row">
+                    <div class="col-md-offset-4 col-md-4 textcenter downspacer">
+                        <a class="btn btn-info btn-lg btnround" ng-click=""><i class="fa fa-arrow-down"></i>Load More Events</a>
+                    </div>
+                </div>

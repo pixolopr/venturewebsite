@@ -33,8 +33,10 @@
   transition: 1s linear;
 }
 .eventname {
-  text-align: center;
-  color: #A66C41;
+  text-align: center !important;
+  color: #A86A42 !important;
+  font-size: x-large !important;
+  font-weight: 500 !important;
 }
 .eventlabels {
   font-weight: 600;

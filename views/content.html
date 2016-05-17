@@ -1,17 +1,60 @@
 <!--home start-->
+<div class="loginstyle" ng-if="logindiv">
+    <div class="row loginstylerow" >
+        <div class="col-md-6">
+            <img src="images/logo_sketched.png">
+        </div>
+        <div class="col-md-6 row">
+            <div class="col-md-3 col-xs-0"></div>
+            <div class="col-md-6 col-xs-12">
+                <h3> {{form.toptext}} <button class="btn btn-danger signupbtn" ng-click="changetype()">{{form.topbtn}}</button></h3>
 
+
+                <form class="textcenter">
+                    <div class="form-group textcenter">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email" ng-model="user.email">
+                    </div>
+                    <div class="form-group textcenter">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" ng-model="user.password">
+                    </div>
+                    
+                    <div class="form-group textcenter" ng-if="form.type == 0">
+                        <label for="exampleInputPhone">Phone</label>
+                        <input type="tel" class="form-control" id="exampleInputPhone" placeholder="Phone" ng-model="user.contact">
+                    </div>
+
+                    <div class="col-md-offset-4 col-md-4 textcenter">
+                        <a class="btn btn-info btn-lg btnround" ng-click="signin()"><i class="fa fa-sign-in"></i>{{form.mainbtn}}</a>
+                    </div>
+                </form>
+                <p style="color:red">{{errormsg}}</p>
+            </div>
+            <div class="col-md-3"></div>
+
+        </div>
+    </div>
+
+    <a ng-click="closelogindiv()" class="col-md-offset-5 col-md-6 upspacer">Skip and Enter Website</a>
+
+
+</div>
 <div id="home">
     <div class="headerLine" style="height:738px">
         <div id="wowslider-container1" style="z-index:0">
             <div class="ws_images" style="height:650px">
                 <ul>
-                    <li><img src="data1/images/pic1.jpg" alt="Idea" title="Idea" id="wows1_0" /></li>
-                    <li>
-                        <img src="data1/images/pic2.jpg" alt="Startup" title="Startup" id="wows1_1" />
+                    <li><img src="data1/images/pic1.jpg" alt="Idea" title="" id="wows1_0" />
                     </li>
-                    <li><img src="data1/images/pic3.jpg" alt="Success" title="Success" id="wows1_2" /></li>
+                    <li>
+                        <img src="data1/images/pic2.jpg" alt="Startup" title="" id="wows1_1" />
+                    </li>
+                    <li><img src="data1/images/pic3.jpg" alt="Success" title="" id="wows1_2" />
+                    </li>
                 </ul>
             </div>
+<!--
             <div class="ws_bullets">
                 <div>
                     <a href="#" title="Idea"><span><img src="data1/tooltips/pic1.jpg" alt="Idea"/>1</span></a>
@@ -19,7 +62,8 @@
                     <a href="#" title="Success"><span><img src="data1/tooltips/pic3.jpg" alt="Success"/>3</span></a>
                 </div>
             </div>
-            <div class="ws_script" style="position:absolute;left:-99%"><a href="http://wowslider.com">jquery slideshow</a> by WOWSlider.com v8.2</div>
+-->
+            <div class="ws_script" style="position:absolute;left:-99%"></div>
             <div class="ws_shadow"></div>
         </div>
         <script type="text/javascript" src="engine1/wowslider.js"></script>
@@ -37,12 +81,20 @@
                     <div class="col-md-8">
                         <div class="navmenu" style="text-align: center;">
                             <ul id="menu" style=" margin-top: 2%;">
-                                <li class="active"><a href="#home">Home</a></li>
-                                <li><a href="#aboutreach">About</a></li>
-                                <li><a href="#events">Events</a></li>
-                                <li><a href="#news">News</a></li>
-                                <li><a href="#gallery">Gallery</a></li>
-                                <li class="last"><a href="#contact">Contact</a></li>
+                                <li class="active"><a href="#home">Home</a>
+                                </li>
+                                <li><a href="#aboutreach">About</a>
+                                </li>
+                                <li><a href="#events">Events</a>
+                                </li>
+                                <li><a href="#news">News</a>
+                                </li>
+                                <li><a href="#gallery">Gallery</a>
+                                </li>
+                                <li><a href="#video">Videos</a>
+                                </li>
+                                <li class="last"><a href="#contact">Contact</a>
+                                </li>
                                 <!--<li><a href="#events">Features</a></li-->
                             </ul>
                         </div>
@@ -77,7 +129,7 @@
             <div class="col-md-12 cBusiness">
                 <h3>Something about us...</h3>
                 <h4>Venture Startups is a "not for profit" organization registered in 2014. It is based at Hyderabad.
-                </br>
+                <br>
                 Venture startups is a platform to empower the willing entrepreneur with both skills and resources to ensure the success of his mission.
 
 We recognize the immense potential of working professionals and enterprising students, who seek to channel their intellectual and technological
@@ -111,17 +163,17 @@ For working professionals, this platform acts as a mid-stage whereas for student
                 <div class="col-md-4 Des">
                     <i class="fa fa-heart"></i>
                     <h4>Creativity</h4>
-                    <p>Nulla consectetur ornare nibh, a auctor mauris scelerisque eu proin nec urna quis justo adipiscing auctor ut auctor. feugiat </p>
+                    <p>Creativity is putting your imagination to work, and it's produced the most extraordinary results in human culture. </p>
                 </div>
                 <div class="col-md-4 Ver">
                     <i class="fa fa-lightbulb-o"></i>
                     <h4>Innovation</h4>
-                    <p>Nulla consectetur ornare nibh, a auctor mauris scelerisque eu proin nec urna quis justo adipiscing auctor ut auctor. feugiat </p>
+                    <p>Innovation is taking two things that already exist and putting them together in a new way </p>
                 </div>
                 <div class="col-md-4 Fully">
                     <i class="fa fa-briefcase"></i>
                     <h4>Entrepreneurship</h4>
-                    <p>Nulla consectetur ornare nibh, a auctor mauris scelerisque eu proin nec urna quis justo adipiscing auctor ut auctor. feugiat </p>
+                    <p>The best time to plant a tree was 20 years ago. The second best time is now. It’s not about ideas. It’s about making ideas happen</p>
                 </div>
             </div>
         </div>
@@ -159,15 +211,36 @@ Hyderabad.</h4>
                     <h5>{{team[number].designation}}</h5>
                     <p>{{team[number].desc}}</p>
                     <div>
-                        <div style="display: inline-block; padding: 10px;" ng-if="member.facebook != ''"><a href="{{team[number].facebook}}"><i class="fa fa-facebook-square" style="font-size: xx-large;"></i></a></div>
-                        <div style="display: inline-block; padding: 10px;" ng-if="member.twitter != ''"><a href="{{team[number].twitter}}"><i class="fa fa-twitter" style="font-size: xx-large;" ></i></a></div>
-                        <div style="display: inline-block; padding: 10px;" ng-if="member.google != ''"><a href="{{team[number].google}}"><i class="fa fa-google-plus-square" style="font-size: xx-large;"></i></a></div>
-                        <div style="display: inline-block; padding: 10px;" ng-if="member.linkedin != ''"><a href="{{team[number].linkedin}}"><i class="fa fa-linkedin" style="font-size: xx-large;"></i></a></div>
+                        <div style="display: inline-block; padding: 10px;" ng-if="member.facebook != ''"><a href="{{team[number].facebook}}"><i class="fa fa-facebook-square" style="font-size: xx-large;"></i></a>
+                        </div>
+                        <div style="display: inline-block; padding: 10px;" ng-if="member.twitter != ''"><a href="{{team[number].twitter}}"><i class="fa fa-twitter" style="font-size: xx-large;" ></i></a>
+                        </div>
+                        <div style="display: inline-block; padding: 10px;" ng-if="member.google != ''"><a href="{{team[number].google}}"><i class="fa fa-google-plus-square" style="font-size: xx-large;"></i></a>
+                        </div>
+                        <div style="display: inline-block; padding: 10px;" ng-if="member.linkedin != ''"><a href="{{team[number].linkedin}}"><i class="fa fa-linkedin" style="font-size: xx-large;"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <button ng-click="gototeam()">CHANGE</button>
+        <!--        <button ng-click="gototeam()">CHANGE</button>-->
+        <div class="container">
+            <!--
+            <div class="row cBtn">
+                <div class="col-md-12" style="text-align: center; margin-bottom: -90px; z-index: 3;">
+                    <ul class="mNews">
+                        <li class="dowbload bhide2"><a ng-click="gototeam()"><i class="fa fa-arrow-down"></i>View Full team</a></li>
+                    </ul>
+
+                </div>
+            </div>
+-->
+            <div class="row">
+                <div class="col-md-offset-4 col-md-4 textcenter">
+                    <a class="btn btn-info btn-lg btnround" ng-click="gototeam()"><i class="fa fa-arrow-down"></i>View Full Team</a>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="container">
         <div class="row">
@@ -193,14 +266,14 @@ Hyderabad.</h4>
             <div class="row about">
                 <div class="col-md-6">
                     <div class="about1">
-                        <img class="pic1Ab" src="images/picAbout/{{people[0].photo}}">
+                        <img class="pic1Ab" src="images/picAbout/{{people[0].photo}}" style="max-height: 200px; !important">
                         <h3>{{people[0].name}}</h3>
                         <p>{{people[0].content}}</p>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="about2">
-                        <img class="pic2Ab" src="images/picAbout/{{people[1].photo}}">
+                        <img class="pic2Ab" src="images/picAbout/{{people[1].photo}}" style="max-height: 200px;">
                         <h3>{{people[1].name}}</h3>
                         <p>{{people[1].content}}</p>
                     </div>
@@ -214,15 +287,14 @@ Hyderabad.</h4>
             <div class="row about">
                 <div class="col-md-6">
                     <div class="about1">
-                        <img class="pic1Ab" src="images/picAbout/{{people[2].photo}}">
-                        <h3>{{people[2].name}}
-</h3>
+                        <img class="pic1Ab" src="images/picAbout/{{people[2].photo}}" style="max-height: 200px; !important">
+                        <h3>{{people[2].name}}</h3>
                         <p>{{people[2].content}}</p>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="about2">
-                        <img class="pic2Ab" src="images/picAbout/{{people[3].photo}}">
+                        <img class="pic2Ab" src="images/picAbout/{{people[3].photo}}" style="max-height: 200px;">
                         <h3>{{people[3].name}}</h3>
                         <p>{{people[3].content}}</p>
                     </div>
@@ -257,7 +329,7 @@ Hyderabad.</h4>
                     <div class="col-md-6">
                         <h3 class="eventname">Event Name</h3>
                         <hr class="hrNews">
-                        <p class="textcenter"><i class="fa fa-calendar"></i> 24th April, 2016</li>
+                        <p class="textcenter"><i class="fa fa-calendar"></i> 24th April, 2016
                         </p>
                         <p class="textcenter">
                             <srong class="eventlabels">Venue:</srong> Event Venue</p>
@@ -285,7 +357,7 @@ Hyderabad.</h4>
                     <div class="col-md-6">
                         <h3 class="eventname">Event Name</h3>
                         <hr class="hrNews">
-                        <p class="textcenter"><i class="fa fa-calendar"></i> 24th April, 2016</li>
+                        <p class="textcenter"><i class="fa fa-calendar"></i> 24th April, 2016
                         </p>
                         <p class="textcenter">
                             <srong class="eventlabels">Venue:</srong> Event Venue</p>
@@ -302,12 +374,11 @@ Hyderabad.</h4>
         </div>
     </div>
 
-    <div class="container downspacer">
-        <div class="row cBtn">
-            <div class="col-md-12" style="text-align: center; margin-bottom: -90px; z-index: 3;">
-                <ul class="mNews">
-                    <li class="dowbload bhide2"><a ng-click=""><i class="fa fa-arrow-down"></i>Load More Events</a></li>
-                </ul>
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-offset-4 col-md-4 textcenter downspacer">
+                <a class="btn btn-info btn-lg btnround" ng-click="gotoevents()"><i class="fa fa-arrow-down"></i>Load More Events</a>
             </div>
         </div>
     </div>
@@ -320,7 +391,7 @@ Hyderabad.</h4>
     <div class="line4">
         <div class="container">
             <div class="row Ama">
-                <div class="col-md-12">
+                <div class="col-md-12 upspacer">
                     <h3>What&rsquo;s New?</h3>
                     <p>Get the latest news from our newsletter</p>
                 </div>
@@ -328,21 +399,24 @@ Hyderabad.</h4>
         </div>
     </div>
     <div class="container">
+        <div class="row">
+            <h2 class="textcenter">News</h2>
+            <hr class="hrNews">
+        </div>
         <div class="row news">
             <div class="col-md-3  text-left" ng-repeat="newsletter in newsletters">
-                <img class="img-responsive picsGall" src="newsletters/cover1.png" />
-                <h3><a href="#"><i class="fa fa-calendar"></i> April, 2016</li></a></h3>
+                <img class="img-responsive picsGall" src="{{newsletter.image}}" />
+                <h3><a href="#"><i class="fa fa-calendar"></i> {{newsletter.month}}, {{newsletter.year}}</a></h3>
                 <hr class="hrNews">
             </div>
         </div>
     </div>
 
     <div class="container">
-        <div class="row cBtn">
-            <div class="col-md-12" style="text-align: center; margin-bottom: -90px; z-index: 3;">
-                <ul class="mNews">
-                    <li class="dowbload bhide2"><a ng-click=""><i class="fa fa-arrow-down"></i>Load More news</a></li>
-                </ul>
+
+        <div class="row">
+            <div class="col-md-offset-4 col-md-4 textcenter">
+                <a class="btn btn-info btn-lg btnround" ng-click="gotonewsletters()"><i class="fa fa-arrow-down"></i>Load More News</a>
             </div>
         </div>
     </div>
@@ -356,8 +430,8 @@ Hyderabad.</h4>
             <div class="row Ama">
                 <div class="col-md-12">
                     <span name="projects" id="projectss"></span>
-                    <h3>Our Amazing Works</h3>
-                    <p>Right here we've got something you gonna love</p>
+                    <h3>Moments we captured</h3>
+                    <p>Check out our gallery of images</p>
                 </div>
             </div>
         </div>
@@ -378,38 +452,133 @@ Hyderabad.</h4>
                 </ul>
             </div>-->
             <!-- //filter_block -->
+            <div class="row">
+                <h2 class="textcenter">Images</h2>
+                <hr class="hrNews">
+            </div>
+
+            <!--
+            <div class="container">
+                <div class="row">
+                    <div class="element col-sm-4 gall branding" style="height:280px" ng-repeat="image in galimages">
+                        <a style="height:85%" class="" href="newsletters/cover1.png">
+                            <img class="img-responsive picsGall galimage" src="newsletters/cover1.png" style="height:85% !important" />
+                        </a>
+                        <div class="view project_descr ">
+                            <h3><a href="#">Image Title</a></h3>
+                        </div>
+                </div>
+            </div>
+            </div>
+-->
+
+
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header textcenter">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                            </button>
 
 
 
-            <div class="portfolio_block columns3   pretty" data-animated="fadeIn">
-                <div class="element col-sm-4   gall branding" style="height:280px" ng-repeat="image in galimages">
-                    <a style="height:85%" class="plS" href="newsletters/cover1.png" rel="prettyPhoto[gallery2]">
-                        <img class="img-responsive picsGall galimage" src="newsletters/cover1.png" alt="pic1 Gallery" />
-                    </a>
-                    <div class="view project_descr ">
-                        <h3><a href="#">Image Title</a></h3>
+                            <h4 class="modal-title" id="myModalLabel">IMAGE TITLE</h4>
+                        </div>
+                        <div class="modal-body textcenter" style="height:auto; max-height:700px">
+                            <img class=" picsGall" ng-src="{{modalimage}}" style="max-height: 600px; position:relative;">
+
+                            <button type="button" class="btnnextprev" aria-label="Previous" style="margin-left: -436px; margin-top: 248px; position:absolute;" ng-click="previousmodalimage()"><i class="fa fa-angle-left iconsize" aria-hidden="true"></i>
+                            </button>
+                            <button type="button" class="btnnextprev" aria-label="Next" style="margin-left: -41px; margin-top:248px; position:absolute;" ng-click="nextmodalimage()"><i class="fa fa-angle-right iconsize" aria-hidden="true"></i>
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="element col-sm-4 gall branding" style="height:280px" data-toggle="modal" data-target="#myModal" ng-click="showmodal($index)" ng-repeat="image in galimages">
+                        <img class="img-responsive picsGall galimage" ng-src="{{image.image}}" style="height:85% !important" />
+                        <div class="view project_descr ">
+                            <h3 class="imagetext">{{image.title}}</h3>
+                        </div>
                     </div>
                 </div>
             </div>
 
 
 
-            <div class="col-md-12 cBtn  lb" style="text-align: center;">
-                <ul class="load_more_cont ">
-                    <li class="dowbload btn_load_more">
-                        <a href="javascript:void(0);">
-                            <i class="fa fa-arrow-down"></i>Load More Photos
-                        </a>
-                    </li>
-                </ul>
+
+            <div class="container">
+                <!--<div class="row cBtn">
+                    <div class="col-md-12" ng-click="gotophotos()" style="text-align: center; z-index: 3;">
+                        <button class="mNews">
+                            <li class="dowbload bhide2"><a><i class="fa fa-arrow-down"></i>View Full team</a></li>
+                        </button>
+
+                    </div>
+                </div>-->
+                <div class="row">
+                    <div class="col-md-offset-4 col-md-4 textcenter">
+                        <a class="btn btn-info btn-lg btnround" ng-click="gotophotos()"><i class="fa fa-arrow-down"></i>Load More Photos</a>
+                    </div>
+                </div>
             </div>
 
         </div>
     </div>
-    <div class="container upspacer">
-        <div class="row">
-            <h2 class="textcenter">Videos</h2>
-            <hr class="hrNews">
+    <div id="video" style="margin-top: 70px;">
+
+
+
+        <div class="line4">
+            <div class="container">
+                <div class="row Ama">
+                    <div class="col-md-12 upspacer">
+                        <h3>Motion Pictures</h3>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container upspacer">
+            <div class="row">
+                <h2 class="textcenter">Videos</h2>
+                <hr class="hrNews">
+            </div>
+            <div class="portfolio_block columns3   pretty" data-animated="fadeIn">
+                <div class="element col-sm-4   gall branding" style="height:280px" ng-repeat="video in videos">
+                    <a style="height:85%" class="plS" href="newsletters/cover1.png" rel="prettyPhoto[gallery2]">
+                        <img class="img-responsive picsGall galimage" src="newsletters/cover1.png" alt="pic1 Gallery" />
+                    </a>
+                    <div class="view project_descr ">
+                        <h3><a href="#">Video Title</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <!--
+            <div class="row">
+                <div class="col-md-12" style="text-align: center; z-index: 3;">
+                    <a ng-click="gotovideos()">
+                        <ul class="mNews">
+                            <li class="dowbload bhide2"><i class="fa fa-arrow-down"></i>Load More Videos</li>
+                        </ul>
+                    </a>
+
+                </div>
+            </div>
+-->
+                <div class="row">
+                    <div class="col-md-offset-4 col-md-4 textcenter">
+                        <a class="btn btn-info btn-lg btnround" ng-click="gotovideos()"><i class="fa fa-arrow-down"></i>Load More Videos</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -457,8 +626,10 @@ Hyderabad.</h4>
 
                     <div class="cBtn col-md-12 col-xs-12">
                         <ul>
-                            <li class="clear"><a href="#"><i class="fa fa-times"></i>clear form</a></li>
-                            <li class="send"><a href="#"><i class="fa fa-share"></i>Send Message</a></li>
+                            <li class="clear"><a href="#"><i class="fa fa-times"></i>clear form</a>
+                            </li>
+                            <li class="send"><a href="#"><i class="fa fa-share"></i>Send Message</a>
+                            </li>
                         </ul>
                     </div>
                 </form>
@@ -516,18 +687,28 @@ Hyderabad.</h4>
                 </div>
                 <div class="col-md-6 text-right dm">
                     <ul id="downMenu">
-                        <li class="active"><a href="#home">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#events">Events</a></li>
-                        <li><a href="#news">News</a></li>
-                        <li><a href="#gallery">Gallery</a></li>
-                        <li class="last"><a href="#contact">Contact</a></li>
+                        <li class="active"><a href="#home">Home</a>
+                        </li>
+                        <li><a href="#about">About</a>
+                        </li>
+                        <li><a href="#events">Events</a>
+                        </li>
+                        <li><a href="#news">News</a>
+                        </li>
+                        <li><a href="#gallery">Gallery</a>
+                        </li>
+                        <li class="last"><a href="#contact">Contact</a>
+                        </li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+
+
+
 
 
 <script src="js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
@@ -557,27 +738,27 @@ Hyderabad.</h4>
     //jQuery
 </script>-->
 <script>
-    $(document).ready(function() {
-        $(".bhide").click(function() {
+    $(document).ready(function () {
+        $(".bhide").click(function () {
             $(".hideObj").slideDown();
             $(this).hide(); //.attr()
             return false;
         });
-        $(".bhide2").click(function() {
+        $(".bhide2").click(function () {
             $(".container.hideObj2").slideDown();
             $(this).hide(); // .attr()
             return false;
         });
 
-        $('.heart').mouseover(function() {
+        $('.heart').mouseover(function () {
             $(this).find('i').removeClass('fa-heart-o').addClass('fa-heart');
-        }).mouseout(function() {
+        }).mouseout(function () {
             $(this).find('i').removeClass('fa-heart').addClass('fa-heart-o');
         });
 
         function sdf_FTS(_number, _decimal, _separator) {
-            var decimal = (typeof(_decimal) != 'undefined') ? _decimal : 2;
-            var separator = (typeof(_separator) != 'undefined') ? _separator : '';
+            var decimal = (typeof (_decimal) != 'undefined') ? _decimal : 2;
+            var separator = (typeof (_separator) != 'undefined') ? _separator : '';
             var r = parseFloat(_number)
             var exp10 = Math.pow(10, decimal);
             r = Math.round(r * exp10) / exp10;
@@ -588,11 +769,11 @@ Hyderabad.</h4>
             return r;
         }
 
-        setTimeout(function() {
+        setTimeout(function () {
             $('#counter').text('0');
             $('#counter1').text('0');
             $('#counter2').text('0');
-            setInterval(function() {
+            setInterval(function () {
 
                 var curval = parseInt($('#counter').text());
                 var curval1 = parseInt($('#counter1').text().replace(' ', ''));
@@ -610,15 +791,13 @@ Hyderabad.</h4>
 
         }, 500);
     });
-
 </script>
 <script type="text/javascript">
-    jQuery(document).ready(function() {
+    jQuery(document).ready(function () {
         jQuery('#menu').slicknav();
         console.log("initiated slick nav");
 
     });
-
 </script>
 
 
@@ -638,11 +817,11 @@ Hyderabad.</h4>
         var winTop = $(window).scrollTop();
         var rangeTop = 200;
         var rangeBottom = 500;
-        $('.navmenu').find('a').each(function() {
+        $('.navmenu').find('a').each(function () {
             contentTop.push($($(this).attr('href')).offset().top);
             contentBottom.push($($(this).attr('href')).offset().top + $($(this).attr('href')).height());
         })
-        $.each(contentTop, function(i) {
+        $.each(contentTop, function (i) {
             if (winTop > contentTop[i] - rangeTop && winTop < contentBottom[i] - rangeBottom) {
                 $('.navmenu li')
                     .removeClass('active')
@@ -651,22 +830,21 @@ Hyderabad.</h4>
         })
     };
 
-    $(document).ready(function() {
+    $(document).ready(function () {
         calculateScroll();
-        $(window).scroll(function(event) {
+        $(window).scroll(function (event) {
             calculateScroll();
         });
-        $('.navmenu ul li a').click(function() {
+        $('.navmenu ul li a').click(function () {
             $('html, body').animate({
                 scrollTop: $(this.hash).offset().top - 80
             }, 800);
             return false;
         });
     });
-
 </script>
 <script type="text/javascript" charset="utf-8">
-    jQuery(document).ready(function() {
+    jQuery(document).ready(function () {
         jQuery(".pretty a[rel^='prettyPhoto']").prettyPhoto({
             animation_speed: 'normal',
             theme: 'light_square',
@@ -684,5 +862,4 @@ Hyderabad.</h4>
 
 
     });
-
 </script>
