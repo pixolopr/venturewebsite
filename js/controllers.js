@@ -4,214 +4,214 @@ var signuppage = true;
 var userdata = {};
 
 var teamlist = [
-           {
-                name: "Dr.Ramkumar Rudrabhatla",
-                designation: "Chief Promoter",
-                desc: "Mr. Ramkumar holds an MBA in HRD, LLM in Business Laws, and qualified for Ph.D. in Microeconomics from BITS. He is a polyglot, who lived in India, US, Singapore, and the Middle East. He is based out of Mumbai.",
-                facebook: "9",
-                twitter: "",
-                linkedin: "",
-                google: "",
-                photo: "ramkumar.png"
+    {
+        name: "Dr.Ramkumar Rudrabhatla",
+        designation: "Chief Promoter",
+        desc: "Mr. Ramkumar holds an MBA in HRD, LLM in Business Laws, and qualified for Ph.D. in Microeconomics from BITS. He is a polyglot, who lived in India, US, Singapore, and the Middle East. He is based out of Mumbai.",
+        facebook: "9",
+        twitter: "",
+        linkedin: "",
+        google: "",
+        photo: "ramkumar.png"
         },
-        {
-                name: "Dr.Sudarshan Sundaram",
-                designation: "",
-                desc: "Dr Sudarshan is an eminent scholar, Business Leader and has held prominent positions of Vice President and HR HR in corporates.He is alos the visiting faculty member in Kuvempu University and Symbiosis, Bangalore.He has a Master’s Degree in Philosophy and has published articles in The Hindu.He has toured several palces around the world spreading knowledge across universities and educational instituitions.",
-                facebook: "",
-                twitter: "",
-                linkedin: "",
-                google: "",
-                photo: ""
+    {
+        name: "Dr.Sudarshan Sundaram",
+        designation: "",
+        desc: "Dr Sudarshan is an eminent scholar, Business Leader and has held prominent positions of Vice President and HR HR in corporates.He is alos the visiting faculty member in Kuvempu University and Symbiosis, Bangalore.He has a Master’s Degree in Philosophy and has published articles in The Hindu.He has toured several palces around the world spreading knowledge across universities and educational instituitions.",
+        facebook: "",
+        twitter: "",
+        linkedin: "",
+        google: "",
+        photo: ""
         },
-          {
-                name: "Raju L Kanchibhotla",
-                designation: "",
-                desc: "",
-                facebook: "",
-                twitter: "",
-                linkedin: "",
-                google: "",
-                photo: "raju.png"
-        },  
-        {
-                name: "Mr.Yogesh Bala",
-                designation: "Chief Promoter",
-                desc: "Mr. Yogesh Bala, our co- promoter, is a professional architect. He is a successful entrepreneur with 23 years of track record. He lives in Hyderabad. He has worked on major landscaping projects in and around India including Hyderabad, Mumbai, Bangalore, Nagpur, Chattisgarh and Andhra Pradesh.",
-                facebook: "",
-                twitter: "",
-                linkedin: "",
-                google: "",
-                photo: "yogesh.png"
-        },          
-        {
-                name: "Anita Sukaru",
-                designation: "",
-                desc: "Ms. Anita Sakuru, our co- promoter, is a technology graduate from BITS and Kellogg’s School of Management. She promoted successful IT companies in India and the US. She is based in Bangalore.",
-                facebook: "",
-                twitter: "",
-                linkedin: "",
-                google: "",
-                photo: "anita.png"
+    {
+        name: "Raju L Kanchibhotla",
+        designation: "",
+        desc: "",
+        facebook: "",
+        twitter: "",
+        linkedin: "",
+        google: "",
+        photo: "raju.png"
         },
-   
-        {
-                name: "Ms.Kalyani Simham",
-                designation: "",
-                desc: "Kalyani Simham is a CELTA certified Master facilitator with a Bachelor’s degree in Psychology and a Master’s degree in English Literature. She has HR experience with corporates like HSBC, Deloitte Consulting and Acclaris. She won the Business Leader Award for three consecutive years in the corporate and has 8 ‘Top  Performer’ awards to her credit. She is a certified  NLP practitioner  from Fifth Element , Pune and a certified Life Coach from Symbiosis, Massachusetts.",
-                facebook: "",
-                twitter: "",
-                linkedin: "",
-                google: "",
-                photo: "kalyani.png"
-        }, 
-        {
-                name: "Surya Prabha Vallae",
-                designation: "",
-                desc: "Surya has 18+ years of experience in determining the content strategy and its execution through user interface content, technical documentation, and marketing & digital marketing collateral.She has managed teams across India, US, Europe, and East Asia. She is a polyglot and holds a master’s degree in English and a bachelor’s degree in teaching.",
-                facebook: "",
-                twitter: "",
-                linkedin: "https://www.linkedin.com/in/prabha2",
-                google: "",
-                photo: "surya.png"
-        }, 
-        {
-                name: "Kiran Kumar Shabbani",
-                designation: "",
-                desc: "Our co-promoter, Mr. Sabbani Kiran Kumar has established himself as a pioneer of various activities that create job opportunities for differently abled people. An MCA by qualification, he is also a certified ISO Auditor and Six Sigma Green Belt holder. He founded an NGO, Power of Confidence Society, which is an excellent platform for those who are willing to use technology and internet to become self-dependant with minimal or no investment.",
-                facebook: "https://www.facebook.com/kirankumarsubban/",
-                twitter: "",
-                linkedin: "",
-                google: "",
-                photo: "kiran.png"
-        },        
-        {
-                name: "Vijay Santosh Sirigiri",
-                designation: "",
-                desc: "A certified inbound marketer, Digital marketing analyst, Post Graduated in computer science engineering, want to see fellow entrepreneurs grow and generate employment.",
-                facebook: "www.facebook.com/vijay.vijjvin",
-                twitter: "https://twitter.com/vijaysirigiri1",
-                linkedin: "",
-                google: "",
-                photo: "vijay.png"
+    {
+        name: "Mr.Yogesh Bala",
+        designation: "Chief Promoter",
+        desc: "Mr. Yogesh Bala, our co- promoter, is a professional architect. He is a successful entrepreneur with 23 years of track record. He lives in Hyderabad. He has worked on major landscaping projects in and around India including Hyderabad, Mumbai, Bangalore, Nagpur, Chattisgarh and Andhra Pradesh.",
+        facebook: "",
+        twitter: "",
+        linkedin: "",
+        google: "",
+        photo: "yogesh.png"
         },
-           {
-                name: "Santosh Ajmeera",
-                designation: "",
-                desc: "Digital marketing analyst, want to see fellow entrepreneurs grow and generate employment.",
-                facebook: "https://www.facebook.com/asantoshnayak",
-                twitter: "https://twitter.com/santoshajmeera",
-                linkedin: "www.linkedin.com/in/santoshajmeera",
-                google: "https://plus.google.com/u/0/112324115701465391112",
-                photo: "santosh.png"
-        },        
-        {
-                name: "Avinash Singh",
-                designation: "",
-                desc: "A techie having a great Quest of success, passionate about entrepreneurship , driven by faith,perseverance and believe in self to make every odd into even.",
-                facebook: "",
-                twitter: "",
-                linkedin: "",
-                google: "",
-                photo: "avinash.png"
+    {
+        name: "Anita Sukaru",
+        designation: "",
+        desc: "Ms. Anita Sakuru, our co- promoter, is a technology graduate from BITS and Kellogg’s School of Management. She promoted successful IT companies in India and the US. She is based in Bangalore.",
+        facebook: "",
+        twitter: "",
+        linkedin: "",
+        google: "",
+        photo: "anita.png"
         },
-          {
-                name: "S.Rohit Phanendra Sai",
-                designation: "",
-                desc: "Living life intensively on daily basis and nothing else matters.",
-                facebook: "https://www.facebook.com/Risskyee",
-                twitter: "",
-                linkedin: "",
-                google: "",
-                photo: "rohith.png"
+
+    {
+        name: "Ms.Kalyani Simham",
+        designation: "",
+        desc: "Kalyani Simham is a CELTA certified Master facilitator with a Bachelor’s degree in Psychology and a Master’s degree in English Literature. She has HR experience with corporates like HSBC, Deloitte Consulting and Acclaris. She won the Business Leader Award for three consecutive years in the corporate and has 8 ‘Top  Performer’ awards to her credit. She is a certified  NLP practitioner  from Fifth Element , Pune and a certified Life Coach from Symbiosis, Massachusetts.",
+        facebook: "",
+        twitter: "",
+        linkedin: "",
+        google: "",
+        photo: "kalyani.png"
         },
-        {
-                name: "P. Suresh Babu",
-                designation: "",
-                desc: "",
-                facebook: "",
-                twitter: "",
-                linkedin: "",
-                google: "",
-                photo: "suresh.png"
+    {
+        name: "Surya Prabha Vallae",
+        designation: "",
+        desc: "Surya has 18+ years of experience in determining the content strategy and its execution through user interface content, technical documentation, and marketing & digital marketing collateral.She has managed teams across India, US, Europe, and East Asia. She is a polyglot and holds a master’s degree in English and a bachelor’s degree in teaching.",
+        facebook: "",
+        twitter: "",
+        linkedin: "https://www.linkedin.com/in/prabha2",
+        google: "",
+        photo: "surya.png"
         },
-        {
-                name: "Manohar K.",
-                designation: "",
-                desc: "A Tax & Finance professional who guides the entrepreneurs in Taxation, Audit, Finance & Accounts and regulatory compliances.",
-                facebook: "https://www.facebook.com/manohar.kunapareddy",
-                twitter: "https://twitter.com/djvenu",
-                linkedin: "https://www.linkedin.com/in/manohar-kunapareddy-42a69754",
-                google: "https://plus.google.com/100807626943366744717",
-                photo: "manohar.png"
-        },        
-         {
-                name: "Bharat Pasam",
-                designation: "",
-                desc: "A Person who says #Passion is all about being an Entrepreneur not the profession you choose.",
-                facebook: "https://www.facebook.com/bharathpasam",
-                twitter: "",
-                linkedin: "",
-                google: "",
-                photo: "bharat.png"
+    {
+        name: "Kiran Kumar Shabbani",
+        designation: "",
+        desc: "Our co-promoter, Mr. Sabbani Kiran Kumar has established himself as a pioneer of various activities that create job opportunities for differently abled people. An MCA by qualification, he is also a certified ISO Auditor and Six Sigma Green Belt holder. He founded an NGO, Power of Confidence Society, which is an excellent platform for those who are willing to use technology and internet to become self-dependant with minimal or no investment.",
+        facebook: "https://www.facebook.com/kirankumarsubban/",
+        twitter: "",
+        linkedin: "",
+        google: "",
+        photo: "kiran.png"
         },
-        {
-                name: "V.Sri Sai Akhil",
-                designation: "",
-                desc: "19 year old entrepreneur. Says 'age is just a number.'",
-                facebook: "https://www.facebook.com/verygood.akhil",
-                twitter: "",
-                linkedin: "https://www.linkedin.com/in/sri-sai-akhil-velagaleti-b21829106",
-                google: "",
-                photo: "akhil.png"
-        },     
-       
-        
-        
-          {
-                name: "Madishetty Venu Kumar",
-                designation: "",
-                desc: "A Start-up enthusiast and Trying out new things!!",
-                facebook: "www.facebook.com/djvenu",
-                twitter: "https://twitter.com/djvenu",
-                linkedin: "",
-                google: "",
-                photo: "venu_kumar.png"
-        },        
-        {
-                name: "Mailwar Suchindra Timmaji",
-                designation: "",
-                desc: "Talkative by habit, anchor by passion and a to-be all rounder",
-                facebook: "https://www.facebook.com/suchindra.mailwar",
-                twitter: "https://twitter.com/suchimailwar",
-                linkedin: "https://www.linkedin.com/in/suchindra-mailwar-76015043",
-                google: "",
-                photo: "suchindra.png"
+    {
+        name: "Vijay Santosh Sirigiri",
+        designation: "",
+        desc: "A certified inbound marketer, Digital marketing analyst, Post Graduated in computer science engineering, want to see fellow entrepreneurs grow and generate employment.",
+        facebook: "www.facebook.com/vijay.vijjvin",
+        twitter: "https://twitter.com/vijaysirigiri1",
+        linkedin: "",
+        google: "",
+        photo: "vijay.png"
         },
-        
-        {
-                name: "Meghana Santoshi Kondapally",
-                designation: "",
-                desc: "Outgoing and lively person, loves to talk  and yearns to explore and learn.",
-                facebook: "https://www.facebook.com/meghu.santoshi",
-                twitter: "",
-                linkedin: "",
-                google: "",
-                photo: "meghana.png"
+    {
+        name: "Santosh Ajmeera",
+        designation: "",
+        desc: "Digital marketing analyst, want to see fellow entrepreneurs grow and generate employment.",
+        facebook: "https://www.facebook.com/asantoshnayak",
+        twitter: "https://twitter.com/santoshajmeera",
+        linkedin: "www.linkedin.com/in/santoshajmeera",
+        google: "https://plus.google.com/u/0/112324115701465391112",
+        photo: "santosh.png"
         },
-                  
-        {
-                name: "Madishetty Mounika",
-                designation: "",
-                desc: "Techie by chance. Women Entrepreneur by passion. Looking to change the world through creative arts and thoughts.",
-                facebook: "https://www.facebook.com/vjmounikaa ",
-                twitter: "https://twitter.com/iammounikamouni",
-                linkedin: "https://in.linkedin.com/in/iammounika",
-                google: "",
-                photo: "mounika.png"
-        }     
-               
-        
+    {
+        name: "Avinash Singh",
+        designation: "",
+        desc: "A techie having a great Quest of success, passionate about entrepreneurship , driven by faith,perseverance and believe in self to make every odd into even.",
+        facebook: "",
+        twitter: "",
+        linkedin: "",
+        google: "",
+        photo: "avinash.png"
+        },
+    {
+        name: "S.Rohit Phanendra Sai",
+        designation: "",
+        desc: "Living life intensively on daily basis and nothing else matters.",
+        facebook: "https://www.facebook.com/Risskyee",
+        twitter: "",
+        linkedin: "",
+        google: "",
+        photo: "rohith.png"
+        },
+    {
+        name: "P. Suresh Babu",
+        designation: "",
+        desc: "",
+        facebook: "",
+        twitter: "",
+        linkedin: "",
+        google: "",
+        photo: "suresh.png"
+        },
+    {
+        name: "Manohar K.",
+        designation: "",
+        desc: "A Tax & Finance professional who guides the entrepreneurs in Taxation, Audit, Finance & Accounts and regulatory compliances.",
+        facebook: "https://www.facebook.com/manohar.kunapareddy",
+        twitter: "https://twitter.com/djvenu",
+        linkedin: "https://www.linkedin.com/in/manohar-kunapareddy-42a69754",
+        google: "https://plus.google.com/100807626943366744717",
+        photo: "manohar.png"
+        },
+    {
+        name: "Bharat Pasam",
+        designation: "",
+        desc: "A Person who says #Passion is all about being an Entrepreneur not the profession you choose.",
+        facebook: "https://www.facebook.com/bharathpasam",
+        twitter: "",
+        linkedin: "",
+        google: "",
+        photo: "bharat.png"
+        },
+    {
+        name: "V.Sri Sai Akhil",
+        designation: "",
+        desc: "19 year old entrepreneur. Says 'age is just a number.'",
+        facebook: "https://www.facebook.com/verygood.akhil",
+        twitter: "",
+        linkedin: "https://www.linkedin.com/in/sri-sai-akhil-velagaleti-b21829106",
+        google: "",
+        photo: "akhil.png"
+        },
+
+
+
+    {
+        name: "Madishetty Venu Kumar",
+        designation: "",
+        desc: "A Start-up enthusiast and Trying out new things!!",
+        facebook: "www.facebook.com/djvenu",
+        twitter: "https://twitter.com/djvenu",
+        linkedin: "",
+        google: "",
+        photo: "venu_kumar.png"
+        },
+    {
+        name: "Mailwar Suchindra Timmaji",
+        designation: "",
+        desc: "Talkative by habit, anchor by passion and a to-be all rounder",
+        facebook: "https://www.facebook.com/suchindra.mailwar",
+        twitter: "https://twitter.com/suchimailwar",
+        linkedin: "https://www.linkedin.com/in/suchindra-mailwar-76015043",
+        google: "",
+        photo: "suchindra.png"
+        },
+
+    {
+        name: "Meghana Santoshi Kondapally",
+        designation: "",
+        desc: "Outgoing and lively person, loves to talk  and yearns to explore and learn.",
+        facebook: "https://www.facebook.com/meghu.santoshi",
+        twitter: "",
+        linkedin: "",
+        google: "",
+        photo: "meghana.png"
+        },
+
+    {
+        name: "Madishetty Mounika",
+        designation: "",
+        desc: "Techie by chance. Women Entrepreneur by passion. Looking to change the world through creative arts and thoughts.",
+        facebook: "https://www.facebook.com/vjmounikaa ",
+        twitter: "https://twitter.com/iammounikamouni",
+        linkedin: "https://in.linkedin.com/in/iammounika",
+        google: "",
+        photo: "mounika.png"
+        }
+
+
     ];
 
 phonecatControllers.controller('teamCtrl',
@@ -221,13 +221,15 @@ phonecatControllers.controller('teamCtrl',
             $scope.template = TemplateService;
             $scope.template.content = "views/team.html";
 
+            $scope.team = teamlist;
+
             //CHECK FOR MOBILE
             $scope.mobile = false;
             if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
                 $scope.mobile = true;
             };
 
-            $scope.team = teamlist;
+
 
             $scope.gotohome = function () {
                 console.log("function called");
@@ -519,7 +521,7 @@ phonecatControllers.controller('teamCtrl',
         /*===========================================*/
 
         //DISABLE LOGIN/SIGNUP FOR NOW
-        //signuppage = false;
+        signuppage = false;
 
         $scope.mobile = false;
         if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
@@ -824,25 +826,23 @@ phonecatControllers.controller('teamCtrl',
             }
 
         ];
-    
-    $scope.dotstatus = [true, false, false, false, false];
-    
-    $scope.dotclicked = function(i, firstval)
-    {
-        for(var q=0; q<$scope.dotstatus.length; q++)
-        {
-            $scope.dotstatus[q] = false;
+
+        $scope.dotstatus = [true, false, false, false, false];
+
+        $scope.dotclicked = function (i, firstval) {
+            for (var q = 0; q < $scope.dotstatus.length; q++) {
+                $scope.dotstatus[q] = false;
+            };
+            $scope.dotstatus[i] = true;
+            $scope.nextteamnumber(firstval);
         };
-        $scope.dotstatus[i] = true;
-        $scope.nextteamnumber(firstval);
-    };
 
         $scope.teamarray = [0, 1, 2, 3];
-    
+
         $scope.nextteamnumber = function (firstvar) {
-            
+
             console.log("changing team");
-            if(firstvar == null){
+            if (firstvar == null) {
                 firstvar = $scope.teamarray[0];
             };
 
@@ -851,14 +851,13 @@ phonecatControllers.controller('teamCtrl',
                 var $box = $(box);
                 setTimeout(function () {
                     if (firstvar < 16) {
-                         console.log(firstvar);
-                        if(idx == 0)
-                        {
+                        console.log(firstvar);
+                        if (idx == 0) {
                             $scope.teamarray[idx] = firstvar + 4;
-                        }else{
-                            $scope.teamarray[idx] = $scope.teamarray[idx-1] + 1;
+                        } else {
+                            $scope.teamarray[idx] = $scope.teamarray[idx - 1] + 1;
                         };
-                        
+
                         $scope.$apply();
                     } else {
                         $scope.teamarray[idx] = idx;
@@ -874,6 +873,17 @@ phonecatControllers.controller('teamCtrl',
         //$interval($scope.nextteamnumber, 5000);
 
         $scope.team = teamlist;
+        $scope.divident = 4;
+        if ($scope.mobile) {
+            $scope.divident = 1
+        };
+        var noofslides = $scope.team.length / $scope.divident;
+        $scope.sliderarray = [];
+        for (var z = 0; z < noofslides; z++) {
+            $scope.sliderarray.push(z * $scope.divident);
+        };
+
+
 
 
         var randomcount = 0;
@@ -930,7 +940,6 @@ phonecatControllers.controller('teamCtrl',
         var get4eventssuccess = function (data, status) {
             console.log(data);
             $scope.events = data;
-            console.log($scope.events);
         };
         var get4eventserror = function (data, status) {
             console.log(data);
@@ -941,7 +950,6 @@ phonecatControllers.controller('teamCtrl',
         var getallphotossuccess = function (data, status) {
             console.log(data);
             $scope.galimages = data;
-            console.log($scope.galimages);
         };
         var getallphotoserror = function (data, status) {
             console.log(data);

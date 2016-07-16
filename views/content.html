@@ -205,22 +205,16 @@ Hyderabad.</h4>
         </div>
     </div>
     <div class="container">
-        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel" style="height: 530px;">
             <!-- Indicators -->
-            <ol class="carousel-indicators">
-                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="1"></li>
-                <li data-target="#myCarousel" data-slide-to="2"></li>
-                <li data-target="#myCarousel" data-slide-to="3"></li>
-            </ol>
+            <!--<ol class="carousel-indicators">
+                <li data-target="#myCarousel" ng-class="{'active':$index==0}" style="background-color: #101010" ng-repeat="a in sliderarray" data-slide-to="$index"></li>
+            </ol>-->
 
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox">
-                <div class="row item" ng-repeat="a in team | limitTo: team.length/4" ng-class="{'active':$index==0}">
-                   {{$scope.a = $parent.$index * 4}}
-                   {{$scope.b = ($parent.$index * 4) + 4}}
-                    <div class="col-md-3 b1 member teammemberdiv" ng-repeat="member in team | slice:a:b">
-                       {{$parent.$index*4}}{{($parent.$index*4) + 4}}
+                <div class="row item" ng-repeat="a in sliderarray" ng-class="{'active':$index==0}">
+                    <div class="col-md-3 b1 member teammemberdiv" ng-repeat="member in team | slice:a:a+divident">
                         <div class="">
                             <div class="teammemberdivinner">
                                 <img class="img-responsive teamphoto" src="images/picTeam/{{member.photo}}" ng-if="member.photo != ''">
@@ -243,7 +237,7 @@ Hyderabad.</h4>
                     </div>
                 </div>
 
-                
+
             </div>
 
 
@@ -257,50 +251,6 @@ Hyderabad.</h4>
                 <span class="sr-only">Next</span>
             </a>
         </div>
-    </div>
-
-    <script>
-        $('.carousel-control').click(function (e) {
-            e.preventDefault();
-        });
-    </script>
-
-    <div class="container">
-
-
-        <div class="teamdiv" ng-class="{mobileheight: mobile, desktopheight: !mobile}">
-
-
-            <div class="col-md-3 b1 member teammemberdiv" ng-repeat="member in team | limitTo:4">
-                <div class="teammemberdivinner">
-                    <img class="img-responsive teamphoto" src="images/picTeam/{{member.photo}}" ng-if="member.photo != ''">
-                    <img class="img-responsive teamphoto" src="images/picTeam/error.png" ng-if="member.photo == ''">
-                    <h4 ng-if="member.name != ''">{{member.name}}</h4>
-                    <h5 ng-if="member.designation != ''" style="color: #A86A42;">{{member.designation}}</h5>
-                    <p ng-if="member.desc != ''">{{member.desc}}</p>
-                    <div>
-                        <div style="display: inline-block; padding: 10px;" ng-if="member.facebook != ''"><a href="{{member.facebook}}"><i class="fa fa-facebook-square" style="font-size: xx-large;"></i></a>
-                        </div>
-                        <div style="display: inline-block; padding: 10px;" ng-if="member.twitter != ''"><a href="{{member.twitter}}"><i class="fa fa-twitter" style="font-size: xx-large;" ></i></a>
-                        </div>
-                        <div style="display: inline-block; padding: 10px;" ng-if="member.google != ''"><a href="{{member.google}}"><i class="fa fa-google-plus-square" style="font-size: xx-large;"></i></a>
-                        </div>
-                        <div style="display: inline-block; padding: 10px;" ng-if="member.linkedin != ''"><a href="{{member.linkedin}}"><i class="fa fa-linkedin" style="font-size: xx-large;"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        <div class="textcenter">
-            <i class="fa fa-circle dot" ng-class="{'dotchecked' : dotstatus[0]}" aria-hidden="true" ng-click="dotclicked(0, 16)"></i>
-            <i class="fa fa-circle dot" ng-class="{'dotchecked' : dotstatus[1]}" aria-hidden="true" ng-click="dotclicked(1, 0)"></i>
-            <i class="fa fa-circle dot" ng-class="{'dotchecked' : dotstatus[2]}" aria-hidden="true" ng-click="dotclicked(2, 4)"></i>
-            <i class="fa fa-circle dot" ng-class="{'dotchecked' : dotstatus[3]}" aria-hidden="true" ng-click="dotclicked(3, 8)"></i>
-            <i class="fa fa-circle dot" ng-class="{'dotchecked' : dotstatus[4]}" aria-hidden="true" ng-click="dotclicked(4, 12)"></i>
-
-        </div>
-
         <div class="container">
             <div class="row">
                 <div class="col-md-offset-4 col-md-4 textcenter">
@@ -309,6 +259,15 @@ Hyderabad.</h4>
             </div>
         </div>
     </div>
+
+    <script>
+        $('.carousel-control').click(function(e) {
+            e.preventDefault();
+        });
+
+    </script>
+
+
     <div class="container">
         <div class="row">
             <div class="col-md-12 hr1">
@@ -389,34 +348,35 @@ Hyderabad.</h4>
         <hr class="hrNews">
         <div class="row news downspacer">
             <div class="col-md-6  text-left" ng-repeat="event in events" ng-if="event.status=='true'">
-                <div class="row">
-                    <div class="col-md-6">
-                        <img class="img-responsive picsGall" src="{{event.image | imagepath}}" />
-                    </div>
-                    <div class="col-md-6">
-                        <h3 class="eventname" ng-if="event.name != ''">{{event.name | capitalize}}</h3>
-                        <hr class="hrNews">
-                        <p class="textcenter" ng-if="event.timestamp != ''"><i class="fa fa-calendar"></i> {{event.timestamp}}
-                        </p>
-                        <p class="textcenter" ng-if="event.venue != ''">
-                            <srong class="eventlabels">Venue:</srong>{{event.venue | capitalize}}</p>
-                        <p class="textcenter" ng-if="event.purpose != ''">
-                            <srong class="eventlabels">Purpose:</srong>{{event.purpose | capitalize}}</p>
-                        <p class="textcenter" ng-if="event.guest_speaker != ''">
-                            <srong class="eventlabels">Guest Speaker: </srong>{{event.guest_speaker | capitalize}}</p>
+                    <div class="row" ng-click="gotoevents()" style="cursor:pointer">
+                        <div class="col-md-6">
+                            <img class="img-responsive picsGall" src="{{event.image | imagepath}}" />
+                        </div>
+                        <div class="col-md-6">
+                            <h3 class="eventname" ng-if="event.name != ''">{{event.name | capitalize}}</h3>
+                            <hr class="hrNews">
+                            <p class="textcenter" ng-if="event.timestamp != ''"><i class="fa fa-calendar"></i> {{event.timestamp}}
+                            </p>
+                            <p class="textcenter" ng-if="event.venue != ''">
+                                <srong class="eventlabels">Venue:</srong>{{event.venue | capitalize}}</p>
+                            <p class="textcenter" ng-if="event.purpose != ''">
+                                <srong class="eventlabels">Purpose:</srong>{{event.purpose | capitalize}}</p>
+                            <p class="textcenter" ng-if="event.guest_speaker != ''">
+                                <srong class="eventlabels">Guest Speaker: </srong>{{event.guest_speaker | capitalize}}</p>
 
 
+                        </div>
                     </div>
-                </div>
             </div>
         </div>
+        <div class="textcenter">Meet up with us to attend our future events at <a href="http://www.meetup.com/VentureStartups/" ><img src="images/meetup.jpg" width="5%"></a></div>
     </div>
     <div class="container">
         <h2 class="textcenter">Past Events</h2>
         <hr class="hrNews">
         <div class="row news downspacer">
             <div class="col-md-6  text-left" ng-repeat="event in events" ng-if="event.status=='false'">
-                <div class="row">
+                <div class="row" ng-click="gotoevents()" style="cursor:pointer">
                     <div class="col-md-6">
                         <img class="img-responsive picsGall" src="{{event.image | imagepath}}" />
                     </div>
@@ -740,35 +700,36 @@ Hyderabad.</h4>
     <script src="js/jquery.slicknav.js"></script>
 
     <script type="text/javascript">
-        jQuery(document).ready(function () {
+        jQuery(document).ready(function() {
             jQuery('#menu').slicknav();
             console.log("initiated slick nav");
 
         });
+
     </script>
 
     <script>
-        $(document).ready(function () {
-            $(".bhide").click(function () {
+        $(document).ready(function() {
+            $(".bhide").click(function() {
                 $(".hideObj").slideDown();
                 $(this).hide(); //.attr()
                 return false;
             });
-            $(".bhide2").click(function () {
+            $(".bhide2").click(function() {
                 $(".container.hideObj2").slideDown();
                 $(this).hide(); // .attr()
                 return false;
             });
 
-            $('.heart').mouseover(function () {
+            $('.heart').mouseover(function() {
                 $(this).find('i').removeClass('fa-heart-o').addClass('fa-heart');
-            }).mouseout(function () {
+            }).mouseout(function() {
                 $(this).find('i').removeClass('fa-heart').addClass('fa-heart-o');
             });
 
             function sdf_FTS(_number, _decimal, _separator) {
-                var decimal = (typeof (_decimal) != 'undefined') ? _decimal : 2;
-                var separator = (typeof (_separator) != 'undefined') ? _separator : '';
+                var decimal = (typeof(_decimal) != 'undefined') ? _decimal : 2;
+                var separator = (typeof(_separator) != 'undefined') ? _separator : '';
                 var r = parseFloat(_number)
                 var exp10 = Math.pow(10, decimal);
                 r = Math.round(r * exp10) / exp10;
@@ -779,11 +740,11 @@ Hyderabad.</h4>
                 return r;
             }
 
-            setTimeout(function () {
+            setTimeout(function() {
                 $('#counter').text('0');
                 $('#counter1').text('0');
                 $('#counter2').text('0');
-                setInterval(function () {
+                setInterval(function() {
 
                     var curval = parseInt($('#counter').text());
                     var curval1 = parseInt($('#counter1').text().replace(' ', ''));
@@ -801,6 +762,7 @@ Hyderabad.</h4>
 
             }, 500);
         });
+
     </script>
 
 
@@ -821,11 +783,11 @@ Hyderabad.</h4>
             var winTop = $(window).scrollTop();
             var rangeTop = 200;
             var rangeBottom = 500;
-            $('.navmenu').find('a').each(function () {
+            $('.navmenu').find('a').each(function() {
                 contentTop.push($($(this).attr('href')).offset().top);
                 contentBottom.push($($(this).attr('href')).offset().top + $($(this).attr('href')).height());
             })
-            $.each(contentTop, function (i) {
+            $.each(contentTop, function(i) {
                 if (winTop > contentTop[i] - rangeTop && winTop < contentBottom[i] - rangeBottom) {
                     $('.navmenu li')
                         .removeClass('active')
@@ -834,34 +796,35 @@ Hyderabad.</h4>
             })
         };
 
-        $(document).ready(function () {
+        $(document).ready(function() {
 
             calculateScroll();
-            $(window).scroll(function (event) {
+            $(window).scroll(function(event) {
                 calculateScroll();
             });
 
-            $('.navmenu ul li a').click(function () {
+            $('.navmenu ul li a').click(function() {
                 $('html, body').animate({
                     scrollTop: $(this.hash).offset().top - 80
                 }, 800);
                 return false;
             });
 
-            $('.footermenu ul li a').click(function () {
+            $('.footermenu ul li a').click(function() {
                 $('html, body').animate({
                     scrollTop: $(this.hash).offset().top - 80
                 }, 800);
                 return false;
             });
 
-            $('.slicknav_menu ul li a').click(function () {
+            $('.slicknav_menu ul li a').click(function() {
                 $('html, body').animate({
                     scrollTop: $(this.hash).offset().top - 80
                 }, 800);
                 return false;
             });
         });
+
     </script>
     <!--<script type="text/javascript" charset="utf-8">
     jQuery(document).ready(function () {

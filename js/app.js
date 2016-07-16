@@ -72,6 +72,7 @@ pixoloapp.config(['$routeProvider',
     })
     .filter('slice', function () {
         return function (arr, start, end) {
+            console.log(start);
             return (arr || []).slice(start, end);
         };
     })
