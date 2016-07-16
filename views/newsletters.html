@@ -1,50 +1,56 @@
 <!--home start-->
-
-<div id="home">
-
-    <div id="menuF" class="fixed transbg">
-        <div class="container" style="">
-            <div class="row">
-                <div class="logo col-md-4">
-                    <div>
-                        <a href="#">
-                            <img src="images/logo.png">
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-8">
-                    <div class="navmenu" style="text-align: center;">
-                        <ul id="menu" style=" margin-top: 2%;">
-                            <li class="active">Newsletters</li>
-                        </ul>
-                    </div>
-                </div>
+<div class="otherpagestop">
+    <div class="row">
+        <div class="col-md-2 col-xs-6">
+            <div>
+                <a href="#">
+                    <img src="images/logo.png" width="100%">
+                </a>
             </div>
+        </div>
+        <div class="col-md-10 col-xs-6 otherpagestitle">
+            <h4 style="float: right;">NEWSLETTERS</h4>
         </div>
     </div>
 </div>
 
 <div class="row toppadding">
 
-    <div class="col-md-offset-4 col-md-4 textcenter upspacer">
+    <div class="col-md-offset-4 col-md-4 textcenter">
         <a class="btn btn-info btn-lg btnround" ng-click="gotohome()"><i class="fa fa-home"></i>Go Home</a>
     </div>
 </div>
 
 
 
-<div class="row news">
+<div class="row news" style="padding-left: 30px;">
+
     <div class="row news">
         <div class="col-md-3  text-left" ng-repeat="newsletter in newsletters">
-            <img class="img-responsive picsGall" src="{{newsletter.image}}" />
-            <h3><a href="#"><i class="fa fa-calendar"></i> {{newsletter.month}}, {{newsletter.year}}</a></h3>
+
+            <a href="{{newsletter.pdf | imagepath}}" target="_blank">
+
+                <img class="img-responsive picsGall" src="images/newsletter.png" />
+
+            </a>
+
+            <h3><a href="{{newsletter.pdf | imagepath}}" target="_blank"><i class="fa fa-calendar"></i> {{newsletter.date}}</a></h3>
+
+
             <hr class="hrNews">
         </div>
     </div>
 </div>
 
 <div class="row">
-                    <div class="col-md-offset-4 col-md-4 textcenter">
-                         <a class="btn btn-info btn-lg btnround" ng-click=""><i class="fa fa-arrow-down"></i>Load More News</a>
-                    </div>
-                </div>
+    <div class="col-md-offset-4 col-md-4 textcenter downspacer">
+        <a class="btn btn-info btn-lg btnround" ng-click="loadmorenewsletters()" ng-disabled="btndisable"><i class="fa fa-arrow-down"></i>Load More News</a>
+    </div>
+</div>
+<div class="container otherfooter">
+    <div class="row">
+        <div class="col-md-6 text-left copy">
+            <p>Copyright &copy; 2016 Pixolo Webworks. All Rights Reserved.</p>
+        </div>
+    </div>
+</div>

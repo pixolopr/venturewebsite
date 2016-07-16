@@ -1,125 +1,73 @@
-<!--home start-->
+<div class="otherpagestop">
+    <div class="row">
+        <div class="col-md-2 col-xs-6">
+            <div>
+                <a href="#">
+                    <img src="images/logo.png" width="100%">
+                </a>
+            </div>
+        </div>
+        <div class="col-md-10 col-xs-6 otherpagestitle">
+            <h4 style="float: right;">PHOTOS</h4>
+        </div>
+    </div>
+    </div>
 
-<div id="home">
 
-    <div id="menuF" class="fixed transbg">
-        <div class="container" style="">
-            <div class="row">
-                <div class="logo col-md-4">
-                    <div>
-                        <a href="#">
-                            <img src="images/logo.png">
-                        </a>
+
+    <div class="row toppadding upspacer">
+
+        <div class="col-md-offset-4 col-md-4 textcenter upspacer">
+            <a class="btn btn-info btn-lg btnround" ng-click="gotohome()"><i class="fa fa-home"></i>Go Home</a>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header textcenter">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                    </button>
+
+                    <h4 class="modal-title" id="myModalLabel">{{modaltitle | capitalize}}</h4>
+                    <div class="row">
+                        <button class="btnlightbox" style="float:left; padding-left:15px;" ng-click="previousmodalimage()">Previous</button>
+                        <button class="btnlightbox" style="float:right; padding-right:15px;" ng-click="nextmodalimage()">Next</button>
                     </div>
                 </div>
-                <div class="col-md-8">
-                    <div class="navmenu" style="text-align: center;">
-                        <ul id="menu" style=" margin-top: 2%;">
-                            <li class="active">Photos</li>
-                        </ul>
-                    </div>
+                <div class="modal-body textcenter" style="height:auto; max-height:700px">
+                    <img class=" picsGall" ng-src="{{modalimage | imagepath}}" style="max-height: 600px; box-shadow: 6px 6px 6px black;">
+
                 </div>
             </div>
         </div>
     </div>
-</div>
+
+    <div class="container textcenter" style="padding:4%">
+        <div class="row upspacer" masonry column-width="20">
+            <div class="masonry-brick" data-toggle="modal" data-target="#myModal" ng-click="showmodal($index)" ng-repeat="image in galimages">
+                <img src="{{image.image | imagepath}}" style="max-width: 250px;box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.51);" />
 
 
-
-<div class="row toppadding">
-
-    <div class="col-md-offset-4 col-md-4 textcenter upspacer">
-        <a class="btn btn-info btn-lg btnround" ng-click="gotohome()"><i class="fa fa-home"></i>Go Home</a>
-    </div>
-</div>
-
-
-<!--<div class="container">
-    <div class="row upspacer">
-        <div class="element col-sm-3 gall branding" style="height:280px" data-toggle="modal" data-target="#myModal" ng-click="showmodal($index)" ng-repeat="image in galimages">
-            <a style="height:85%" class="">
-                <img class="img-responsive picsGall galimage" src="{{image.image}}" style="height:85% !important" />
-            </a>
-            <div class="view project_descr ">
-                <h3><a href="#">{{image.title}}</a></h3>
-            </div>
-        </div>
-
-        <div class="element col-sm-3 gall branding" style="height:280px">
-            <div class="textcenter">
-                <a class="btn btn-info btn-lg bigbtn" ng-click=""><i class="fa fa-plus-circle"></i></a>
-            </div>
-
-        </div>
-    </div>
-</div>-->
-
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header textcenter">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
-                </button>
-                
-                <h4 class="modal-title" id="myModalLabel">IMAGE TITLE</h4>
-                <div class="row">
-                <button class="btnlightbox" style="float:left; padding-left:15px;" ng-click="previousmodalimage()">Previous</button>
-                <button class="btnlightbox" style="float:right; padding-right:15px;" ng-click="nextmodalimage()">Next</button>
+                <div class="imagetext" ng-if="image.title != ''">
+                    <p style="font-size:20px"> {{image.title | capitalize}}</p>
                 </div>
-            </div>
-            <div class="modal-body textcenter" style="height:auto; max-height:700px">
-                <img class=" picsGall" ng-src="{{modalimage}}" style="max-height: 600px;">
-                
-<!--
-                 <button type="button" class="btnnextprev" aria-label="Previous" style="margin-left: -436px; margin-top: 248px; position:absolute;" ng-click="previousmodalimage()"><i class="fa fa-angle-left iconsize" aria-hidden="true"></i>
-                </button>
-                <button type="button" class="btnnextprev" aria-label="Next" style="margin-left: -41px; margin-top:248px; position:absolute;" ng-click="nextmodalimage()"><i class="fa fa-angle-right iconsize" aria-hidden="true"></i>
-                </button>
--->
+
+
             </div>
         </div>
     </div>
-</div>
 
-<div  class="container textcenter" style="padding:4%">
-    <div class="row upspacer" masonry column-width="20">
-        <div class="masonry-brick" data-toggle="modal" data-target="#myModal" ng-click="showmodal($index)" ng-repeat="image in galimages">
-                <img src="http://localhost/venture/vsBackend/uploads/{{image.image}}" style="max-width: 250px;"/>
-            
-            
-                <div class="imagetext">
-                   <h3> {{image.title}}</h3>
-                </div>
-            
-            
-     
-            
-            
-            
-<!--
-            <div id="box-1" class="box">
-        <img id="image-1" src="css3-image-captions/1.jpg"/>
-        <span class="caption simple-caption">
-        <p>Simple Caption</p>
-        </span>
-    </div>
--->
-            
-            
-            
-            
-            
-            
-            
-            
-            
+    <div class="row">
+        <div class="col-md-offset-4 col-md-4 textcenter downspacer">
+            <a class="btn btn-info btn-lg btnround" ng-click="loadmoreimages()" ng-disabled="btndisable"><i class="fa fa-arrow-down"></i>Load More Images</a>
         </div>
     </div>
-</div>
-
-<div class="row">
-                    <div class="col-md-offset-4 col-md-4 textcenter downspacer">
-                        <a class="btn btn-info btn-lg btnround" ng-click=""><i class="fa fa-arrow-down"></i>Load More Images</a>
-                    </div>
-                </div>
+    <div class="container otherfooter">
+        <div class="row">
+            <div class="col-md-6 text-left copy">
+                <p>Copyright &copy; 2016 Pixolo Webworks. All Rights Reserved.</p>
+            </div>
+        </div>
+    </div>

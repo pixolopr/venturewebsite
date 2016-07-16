@@ -1,79 +1,86 @@
-<!--home start-->
-
-<div id="home">
-
-    <div id="menuF" class="fixed transbg">
-        <div class="container" style="">
-            <div class="row">
-                <div class="logo col-md-4">
-                    <div>
-                        <a href="#">
-                            <img src="images/logo.png">
-                        </a>
-                    </div>
+<div style="background-color: rgb(245, 245, 220);">
+    <div class="otherpagestop">
+        <div class="row">
+            <div class="col-md-2 col-xs-6">
+                <div>
+                    <a href="#">
+                        <img src="images/logo.png" width="100%">
+                    </a>
                 </div>
-                <div class="col-md-8">
-                    <div class="navmenu" style="text-align: center;">
-                        <ul id="menu" style=" margin-top: 2%;">
-                            <li class="active">Events</li>
-                        </ul>
+            </div>
+            <div class="col-md-10 col-xs-6 otherpagestitle">
+                <h4 style="float: right;">EVENTS</h4>
+            </div>
+        </div>
+    </div>
 
-                    </div>
+    <div class="row upspacer">
+
+        <div class="col-md-offset-4 col-md-4 textcenter">
+            <a class="btn btn-info btn-lg btnround" ng-click="gotohome()"><i class="fa fa-home"></i>Go Home</a>
+        </div>
+    </div>
+
+    <div class="row textcenter upspacer">
+        <div class="">Filter by tags:</div>
+        <div class="">
+            <button class="eventtagchecked" ng-class="{'eventtagunchecked':tagarray.length>0,'eventtagchecked':tagarray.length == 0}" ng-click="anytag()">Any</button>
+            <button class="eventtagunchecked" ng-repeat="tag in tags" ng-click="altertagarray(tag.id)" ng-class="{'eventtagunchecked':tagarray.indexOf(tag.id)==-1,'eventtagchecked':tagarray.indexOf(tag.id)!=-1}">{{tag.name}}</button>
+        </div>
+
+
+    </div>
+
+
+
+    <div class="eventupspacer" ng-class="{'bigupspacer':$index==0}" ng-repeat="event in events">
+        <div class="toptri"></div>
+        <div class="row" style="padding: 2%;background-color:white;">
+            <div class="col-md-4">
+                <img class="img-responsive picsGall eventimage2" src="{{event.image | imagepath}}" />
+            </div>
+            <div class="col-md-6">
+                <div class="">
+                    <h3 class="eventname">{{event.name | capitalize}}</h3><div class="eventstatusdiv"><span ng-if="event.status == 'true'">OPEN</span><span ng-if="event.status == 'false'">CLOSED</span></div>
+                    <hr class="hrNews">
+                    <p class="" style="color : black;" ng-if="event.venue">
+                        <srong class="eventlabels" style="color : black;">Venue : </srong> {{event.venue | capitalize}}</p>
+                    <p class="" style="color : black;" ng-if="event.purpose">
+                        <srong class="eventlabels" style="color : black;">Purpose : </srong> {{event.purpose | capitalize}}</p>
+                    <p class="" style="color : black;" ng-if="event.guest_speaker">
+                        <srong class="eventlabels" style="color : black;">Guest Speaker : </srong> {{event.guest_speaker | capitalize}}</p>
+                    <p class="" style="color : black;display: inline-block;" ng-if="event.tags.length > 0">
+                        <srong class="eventlabels" style="color : black;">Tags : </srong>
+                    </p>
+                    <div class="innereventtag" ng-repeat="tag in event.tags">{{tag.name | capitalize}}</div>
+
                 </div>
+            </div>
+            <div class="col-md-2 textcenter" style="margin-top: 3%;">
+                <h4>Scheduled On:</h4>
+                <!--event.timestamp-->
+                <div class="calenderout">
+                    <div class="calmonth">{{ event.timestamp | date:'MMMM' }}</div>
+                    <div class="calday">
+                        {{ event.timestamp | date:'dd' }}</div>
+                    <div class="calyear">{{ event.timestamp | date:'yyyy' }}</div>
+                </div>
+            </div>
+        </div>
+        <div class="bottomtri"></div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-offset-4 col-md-4 textcenter downspacer upspacer">
+            <a class="btn btn-info btn-lg btnround" ng-disabled="btndisable" ng-click="next4events()"><i class="fa fa-arrow-down"></i>Load More Events</a>
+        </div>
+    </div>
+    <div class="container otherfooter">
+        <div class="row">
+            <div class="col-md-6 text-left copy">
+                <p>Copyright &copy; 2016 Pixolo Webworks. All Rights Reserved.</p>
             </div>
         </div>
     </div>
 </div>
- <div class="row upspacer toppadding">
-                        
-                        <div class="col-md-offset-4 col-md-4 textcenter downspacer">
-                           <a class="btn btn-info btn-lg btnround" ng-click="gotohome()"><i class="fa fa-home"></i>Go Home</a>
-                    </div>
-                    </div>
-
-<div class="row  col-md-offset-4 col-md-4 textcenter">
-    <button class="btn btn-info-outline btn-md btnstyle">Tag 1</button>
-    <button class="btn btn-info-outline btn-md btnstyle">Tag 2</button>
-    <button class="btn btn-info-outline btn-md btnstyle">Tag 3</button>
-    <button class="btn btn-info-outline btn-md btnstyle">Tag 4</button>
-
-    
-</div>
-                   
-
-                    
-                
-
-
-<div class="row upspacer btnstyle">
-
-    <div class="row ">
-        <div class="row col-md-3 eventsize" ng-repeat="event in events">
-            <div>
-                <img class="img-responsive picsGall eventimage" src="images/eventpic.png" height="300" width="200" />
-            </div>
-            <div class="">
-                <h3 class="eventname">Event Name</h3>
-                <hr class="hrNews">
-                <p class="textcenter" style="color : black;"><i class="fa fa-calendar"></i> 24th April, 2016
-                </p>
-                <p class="textcenter" style="color : black;">
-                    <srong class="eventlabels" style="color : black;">Venue:</srong> Event Venue</p>
-                <p class="textcenter" style="color : black;">
-                    <srong class="eventlabels" style="color : black;">Purpose:</srong> Event Purpose</p>
-                <p class="textcenter" style="color : black;">
-                    <srong class="eventlabels" style="color : black;">Guest Speaker:</srong> Event guest speaker</p>
-                <p class="textcenter" style="color : black;">
-                    <srong class="eventlabels" style="color : black;">Tags:</srong> Event Tag List</p>
-
-            </div>
-        </div>
-
-
-
-    </div>
-  <div class="row">
-                    <div class="col-md-offset-4 col-md-4 textcenter downspacer">
-                        <a class="btn btn-info btn-lg btnround" ng-click=""><i class="fa fa-arrow-down"></i>Load More Events</a>
-                    </div>
-                </div>

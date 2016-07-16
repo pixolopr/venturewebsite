@@ -9,6 +9,7 @@
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="<?php echo base_url('/assets/materialize/css/materialize.css'); ?>" rel="stylesheet">
     <link href="<?php echo base_url('/assets/admin.css'); ?>" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 </head>
 
 <body>
@@ -16,10 +17,10 @@
         <div class="navbar-wrapper">
             <div id="menu" class="left center">
                 <div id="nav-icon3">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                      <span></span>
                 </div>
             </div>
             <a href="#" class="brand-logo center">Venture Startups Admin Panel</a>
@@ -27,13 +28,14 @@
                 <li>
                     <a class="dropdown-button left" href="#" data-activates='dropdown1'>
                         <i class="material-icons md-36 left" style="margin:5% 0%">person</i>
-                        <p class="nomarg left ">admin</p>
+                        <p class="nomarg left " ><?php echo ucfirst($this->sessiondata['email']); ?></p>
                         <i class="material-icons left" style="margin-top:12%">arrow_drop_down</i>
                     </a>
                     <ul id="dropdown1" class="dropdown-content">
                         <li>
-                            <a href="#">
-                                <i class="material-icons md-36 left nomarg">power_settings_new</i> Logout
+                            <a href="<?php echo site_url('/welcome/logout'); ?>">
+                                <i class="material-icons md-36 left nomarg">power_settings_new</i>
+                                Logout
                             </a>
                         </li>
                     </ul>
@@ -42,52 +44,89 @@
             </ul>
         </div>
     </nav>
+    <div class="admin_panel"></div>
 
     <div>
         <ul class="side-nav">
-            <li><a href="#">Dashboard</a></li>
-            <li><a href="#">Table1</a></li>
-            <li><a href="#">Table2</a></li>
-            <li><a href="#">Table3</a></li>
-            <li><a href="#">Table4</a></li>
-            <li><a href="#">Table5</a></li>
-            <li><a href="#">Table6</a></li>
-            <li><a href="#">Table7</a></li>
+            <li><a href="<?php echo site_url('/').'welcome/dashboard'; ?>">Dashboard</a></li>
+
+            <?php foreach($this->tables as $tablename) { ?>
+            <li><a href="<?php echo site_url('/').$tablename->TABLE_NAME.'/getdataview'; ?>"><?php echo $tablename->TABLE_NAME; ?></a></li>
+            <?php }; ?>
+
         </ul>
 
     </div>
 
-    <div class="container" style="margin-top:35px">
-        <div class="row">
-            <div class="col m5 out_box">
-                <img class="responsive-img" src="<?php echo base_url('/assets/materialize/img/icon.png'); ?>">
-                <h5>Novelity News Paper</h5>
-                <p>This is the mobile app for users</br>
-                 News from Mumbai and Editor </br>
-               </p>
-            </div>
-            <div class="col m7">
-                
-            </div>
+    <div class="container">
+    <h2>Welcome <?php echo ucfirst($this->sessiondata['email']); ?>,</h2>
+    <h3>this is your dashboard for the website www.venturestartups.in</h3>
+
+    <div class="row">
+        <div class="col-md-6" style="text-align:center">
+            <i class="material-icons" style="font-size:100px;">face</i>
+            
+            <h3>Number of Users</h3>
+            <h4><?php echo $usercount->count; ?></h4>
         </div>
+        <div class="col-md-6"  style="text-align:center">
+            <i class="material-icons" style="font-size:100px;">insert_drive_file</i>
+            
+            <h3>Number of Newsletters</h3>
+            <h4><?php echo $newscount->count; ?></h4>
+        </div>
+         
+        
+
     </div>
+    <div>
+        <h3>Manage your website section</h3>
+    </div>
+    <div class="row">
+       <a href="<?php echo site_url('/').'users/getdataview'; ?>" class="col-md-2" style="text-align:center">
+           <i class="material-icons" style="font-size:80px;">face</i>
+           <h4>Users</h4>
+       </a>
+       <a  href="<?php echo site_url('/').'nesletters/getdataview'; ?>" class="col-md-2" style="text-align:center">
+           <i class="material-icons" style="font-size:80px;">insert_drive_file</i>
+           <h4>Newspapers</h4>
+       </a>
+       <a  href="<?php echo site_url('/').'photos/getdataview'; ?>" class="col-md-2" style="text-align:center">
+           <i class="material-icons" style="font-size:80px;">wallpaper</i>
+           <h4>Photos</h4>
+       </a>
+       <a  href="<?php echo site_url('/').'videos/getdataview'; ?>" class="col-md-2" style="text-align:center">
+           <i class="material-icons" style="font-size:80px;">videocam</i>
+           <h4>Videos</h4>
+       </a>
+       <a  href="<?php echo site_url('/').'tags/getdataview'; ?>" class="col-md-2" style="text-align:center">
+           <i class="material-icons" style="font-size:80px;">book</i>
+           <h4>Tags</h4>
+       </a>
+       <a  href="<?php echo site_url('/').'events/getdataview'; ?>" class="col-md-2" style="text-align:center">
+           <i class="material-icons" style="font-size:80px;">&#xE878;</i>
+           <h4>Events</h4>
+       </a>
+        
+        
+        
+        
+        
+        
+    </div>
+    
+    </div>
+
+
+
+
 
     <script type="text/javascript" src="<?php echo base_url('/assets/materialize/js/jquery.js'); ?>"></script>
     <script type="text/javascript" src="<?php echo base_url('/assets/materialize/js/materialize.js'); ?>"></script>
     <script type="text/javascript" src="<?php echo base_url('/assets/main.js'); ?>"></script>
-    <script>
-        $('#menu').click(function () {
-            $('.side-nav').toggleClass('sidenav_left')
-        })
-        $(".side-nav li").click(function () {
-            $('.side-nav').removeClass('sidenav_left');
-        })
-        $(document).ready(function () {
-            $('#nav-icon1,#nav-icon2,#nav-icon3,#nav-icon4').click(function () {
-                $(this).toggleClass('open');
-            });
-        });
-    </script>
+    
+    <div style="height:50px"></div>
 </body>
+
 
 </html>

@@ -26,7 +26,6 @@
 	prefix = 'slicknav';
 	
 	function Plugin( element, options ) {
-        console.log("yo yo yo1");
 		this.element = element;
 
         // jQuery has an extend method which merges the contents of two or
@@ -72,7 +71,7 @@
 		
 		// create menu bar
 		$this.mobileNav.attr('class', prefix+'_nav');
-		var menuBar = $('<div class="'+prefix+'_menu"></div>');
+		var menuBar = $('<div class="'+prefix+'_menu mobilemenu"></div>');
 		$this.btn = $('<'+settings.parentTag+' aria-haspopup="true" tabindex="0" class="'+prefix+'_btn '+prefix+'_collapsed"><span class="'+prefix+'_menutxt">'+settings.label+'</span><span class="'+iconClass+'"><span class="'+prefix+'_icon-bar"></span><span class="'+prefix+'_icon-bar"></span><span class="'+prefix+'_icon-bar"></span></span></a>');
 		$(menuBar).append($this.btn);		
 		$(settings.prependTo).prepend(menuBar);
@@ -159,13 +158,19 @@
 			e.preventDefault();
 			$this._menuToggle();			
 		});
+        
+        // menu button click
+		$('.slicknav_nav li a').click(function (e) {
+            console.log("buttton clicked");
+			e.preventDefault();
+			$this._menuToggle();			
+		});
 		
 		// click on menu parent
 		$this.mobileNav.on('click', '.'+prefix+'_item', function(e){
 			e.preventDefault();
 			$this._itemClick($(this));
 		});
-		
 		// check for enter key on menu button and menu parents
 		$($this.btn).keydown(function (e) {
 			var ev = e || event;

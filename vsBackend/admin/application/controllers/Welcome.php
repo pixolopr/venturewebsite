@@ -1,31 +1,24 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class Welcome extends PIXOLO_Controller {
 
 function __construct()
  	 {
  	 	 parent::__construct();
 
- 	 	 //$this->load->model('Access_model', 'dmodel');
-         //$this->table=$this->model->getschemainfo();
+ 	 	 //LOAD MODEL
+	$this->load->model('User_Model', 'model');
+
+	//DATABSE INFO//
+	//ALL TABLES LIST FOR MENU
+	 $this->tables = $this->model->gettablelist();
      $this->load->helper('url');
+    
+    
+    
  	 }
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see http://codeigniter.com/user_guide/general/urls.html
-	 */
+    
 	public function index()
 	{
 		$this->load->view('login');
@@ -53,7 +46,8 @@ function __construct()
                 'isloggedin'=>true
             );
             $this->session->set_userdata($data);
-             redirect('users/getdataview');
+             print_r($data);
+             redirect('welcome/dashboard');
             }else{
                 $this->session->set_flashdata('error', 'email and password dont match');
                 redirect('welcome/login');
@@ -68,7 +62,16 @@ function __construct()
 
          public function dashboard()
          {
-            $this->load->view('dashboard');
+             //CHECK LOGIN SESSION
+            if($this->session->userdata('isloggedin') != 1)
+            {
+                redirect('Welcome/login');
+            }else{
+                $this->sessiondata = $this->session->get_userdata();
+            };
+             $message['usercount'] = $this->model->getusercount();
+             $message['newscount'] = $this->model->getnewscount();
+            $this->load->view('dashboard', $message);
          }
 
 }

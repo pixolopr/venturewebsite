@@ -12,7 +12,15 @@ class PIXOLO_Controller extends CI_Controller {
     public function insert()
 	{
 		$data = $this->input->get('data');
-		$message['json']=$this->model->insert(json_decode($data));
+        $data = json_decode($data);
+        $cols=$this->model->getschemainfo();
+        foreach($cols as $col){
+            if($col->COLUMN_COMMENT == "password"){
+                $colname = $col->COLUMN_NAME;
+                $data->$colname = SHA1($data->$colname);
+            };
+        };
+		$message['json']=$this->model->insert($data);
 		$this->load->view('json', $message);
 	}
 

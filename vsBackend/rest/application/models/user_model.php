@@ -1,7 +1,7 @@
 <?php 
  defined('BASEPATH') OR exit('No direct script access allowed'); 
  
- class User_Model extends PIXOLO_Model 
+ class User_model extends PIXOLO_Model 
  { 
 
  
@@ -28,7 +28,7 @@
      
      public function checkuser($email, $password, $contact)
  	 {
- 	 	$query = $this->db->query("SELECT * FROM `users` WHERE `email`=$email");
+ 	 	$query = $this->db->query("SELECT * FROM `users` WHERE `email`='$email'");
  		
  		if ($query->num_rows() > 0)
  			{
@@ -40,6 +40,22 @@
              
  		   	}
  	 }
+     
+     public function subscribe($email){
+         $query = $this->db->query("SELECT * FROM `users` WHERE `email`='$email'");
+ 		
+ 		if ($query->num_rows() > 0)
+ 			{
+ 		        $query = $this->db->query("UPDATE `users` SET `subscription`=1 WHERE `email`='$email'");
+                return $query;
+ 			}
+ 		else
+ 		   {
+	 		   	 return false;
+             
+ 		   	}
+         
+     }
  } 
  
  ?>

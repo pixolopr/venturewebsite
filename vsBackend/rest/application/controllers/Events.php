@@ -16,4 +16,26 @@
  	 	 $message['json']=$this->model->get_all(); 
  	 	 $this->load->view('json', $message); 
  	 } 
+     
+     public function load4events(){
+        $message['json']=$this->model->load4events();
+		$this->load->view('json', $message);
+    }
+     public function load8events(){
+     $message['json']=$this->model->load8events();
+		$this->load->view('json', $message);
+     }
+    public function next4events(){
+        $n = $this->input->get("count");
+        $tagarray = $this->input->get("tagarray");
+        $tagarray = json_decode($tagarray);
+        $message['json']=$this->model->next4events($n, $tagarray);
+		$this->load->view('json', $message);
+     }
+     public function tagfilter(){
+        $tagarray = $this->input->get('tagarray');
+        $tagarray = json_decode($tagarray);
+        $message['json'] = $this->model->tagfilter($tagarray);   
+		$this->load->view('json', $message); 
+     }
  }

@@ -16,4 +16,18 @@
  	 	 $message['json']=$this->model->get_all(); 
  	 	 $this->load->view('json', $message); 
  	 } 
+     
+     public function load4newsletters(){
+        $message['json']=$this->model->load4newsletters();
+		$this->load->view('json', $message);
+    }
+     public function load8newsletters(){
+     $message['json']=$this->model->load8newsletters();
+		$this->load->view('json', $message);
+     }
+    public function next4newsletters(){
+        $n = $this->input->get("count");
+        $message['json']=$this->model->next4newsletters($n);
+		$this->load->view('json', $message);
+     }
  }

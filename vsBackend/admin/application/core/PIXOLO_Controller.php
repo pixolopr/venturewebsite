@@ -26,6 +26,7 @@ class PIXOLO_Controller extends CI_Controller {
 	{
 		$id = $this->input->get('id');
 		$message['json']=$this->model->get($id);
+		$message['json']=$this->model->get($id);
 		$this->load->view('json', $message);
 	}
 
@@ -231,6 +232,8 @@ class PIXOLO_Controller extends CI_Controller {
 
       public function datainsertion($insertdata, $inserttype, $id)
       {
+          $upfile = 0;
+          
         foreach($this->table as $fields)
         {
 
@@ -244,7 +247,8 @@ class PIXOLO_Controller extends CI_Controller {
                  {
                      //INSERT DATE FIELD
                      if($fields->COLUMN_COMMENT=='date'){
-                         $data[$fields->COLUMN_NAME] = date('Y-m-d', strtotime($insertdata[$fields->COLUMN_NAME]));
+                         $y = substr($insertdata[$fields->COLUMN_NAME],strlen($insertdata[$fields->COLUMN_NAME])-4 ,strlen($insertdata[$fields->COLUMN_NAME]));
+                         $data[$fields->COLUMN_NAME] = date($y.'-m-d', strtotime($insertdata[$fields->COLUMN_NAME]));
                      }else{
                          //INSERT TIME FIELD
                          if($fields->COLUMN_COMMENT=='time')
@@ -264,33 +268,48 @@ class PIXOLO_Controller extends CI_Controller {
             }else {
             if(substr($fields->COLUMN_COMMENT,0,4)=='file')
             {
+                print_r($fields->COLUMN_NAME);
+                
                $allowedtype = substr($fields->COLUMN_COMMENT,6);
                $allowedtype = str_replace(",.","|",$allowedtype);
-
+                
+                //$config = array();
+                //print_r($config);
                $config['upload_path'] = '../uploads/';
-               $config['allowed_types'] =$allowedtype ;
-               $config['max_size']	= '20000';
+               $config['allowed_types'] = '*';/*$allowedtype ;*/
+               $config['max_size']	= '200000';
                $config['max_width']  = '5000';
                $config['max_height']  = '5000';
 
                $newFileName = $_FILES[$fields->COLUMN_NAME]['name'];
                $extention = explode(".", $newFileName);
+               $newFileName = $extention[0];
                $fileExt = array_pop($extention);
-               $filename = md5(time()).".".$fileExt;
+               $filename = md5(time().$newFileName);//.".".$fileExt;
 
                //set filename in config for upload
-               $config['file_name'] = $filename;
-
-              $this->load->library('upload', $config);
-
-              if ( ! $this->upload->do_upload($fields->COLUMN_NAME))
+               $config['file_name'] = $filename; 
+                
+                if($upfile == 0){
+                    $upfile = 1;
+                    
+                };
+                
+                $this->load->library('upload', $config);
+            
+         //$this->upload->initialize($config);
+              
+            if ( ! $this->upload->do_upload($fields->COLUMN_NAME))
               {
                 $error = array('error' => $this->upload->display_errors());
+                  print_r($error);
               }
               else
               {
                 $data[$fields->COLUMN_NAME] = $filename;
+                  print_r($filename);
               }
+                $this->upload = null;
             };
           };
         };
@@ -300,6 +319,7 @@ class PIXOLO_Controller extends CI_Controller {
             $num_inserts = $this->db->affected_rows();
             print_r($num_inserts);
         }else{
+            print_r($data);
             $message['insertedid']=$this->model->update($id, $data);
         };
 

@@ -1,27 +1,46 @@
 <!--home start-->
 
-<div id="home">
-
-    <div id="menuF" class="fixed transbg">
-        <div class="container" style="">
-            <div class="row">
-                <div class="logo col-md-4">
-                    <div>
-                        <a href="#">
-                            <img src="images/logo.png">
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-8">
-                    <div class="navmenu" style="text-align: center;">
-                        <ul id="menu" style=" margin-top: 2%;">
-                            <li class="active">videos</li>
-                        </ul>
-                    </div>
-                </div>
+<div class="otherpagestop">
+    <div class="row">
+        <div class="col-md-2 col-xs-6">
+            <div>
+                <a href="#">
+                    <img src="images/logo.png" width="100%">
+                </a>
             </div>
         </div>
+        <div class="col-md-10 col-xs-6 otherpagestitle">
+            <h4 style="float: right;">VIDEOS</h4>
+        </div>
     </div>
+</div>
+<div class="row toppadding ">
 
+    <div class="col-md-offset-4 col-md-4 textcenter">
+        <a class="btn btn-info btn-lg btnround" ng-click="gotohome()"><i class="fa fa-home"></i>Go Home</a>
+    </div>
+</div>
 
+<div class="portfolio_block columns3 upspacer" style="display:inline-block">
+    <div class="element col-sm-4 gall branding upspcaer" style="height:350px" ng-repeat="video in videos">
+        <div style="position:relative;" class="homevideo" ng-bind-html="video.video">
+        </div>
+        <div class="view project_descr ">
+            <h3 style="font-size: 18px;">{{video.title}}</h3>
+        </div>
+    </div>
+</div>
+<div class="container upspacer">
+    <div class="row">
+        <div class="col-md-offset-4 col-md-4 textcenter downspacer" style="margin-top: 30px;">
+            <a class="btn btn-info btn-lg btnround" ng-click="loadmorevideos()" ng-disabled="btndisable"><i class="fa fa-arrow-down"></i>Load More Videos</a>
+        </div>
+    </div>
+</div>
+<div class="container otherfooter">
+    <div class="row">
+        <div class="col-md-6 text-left copy">
+            <p>Copyright &copy; 2016 Pixolo Webworks. All Rights Reserved.</p>
+        </div>
+    </div>
 </div>

@@ -1,25 +1,16 @@
 <!--home start-->
 
-<div id="home">
-
-    <div id="menuF" class="fixed transbg">
-        <div class="container" style="">
-            <div class="row">
-                <div class="logo col-md-4">
-                    <div>
-                        <a href="#">
-                            <img src="images/logo.png">
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-8">
-                    <div class="navmenu" style="text-align: center;">
-                        <ul id="menu" style=" margin-top: 2%;">
-                            <li class="active">Team Members</li>
-                        </ul>
-                    </div>
-                </div>
+<div class="otherpagestop">
+    <div class="row">
+        <div class="col-md-2 col-xs-6">
+            <div>
+                <a href="#">
+                    <img src="images/logo.png" width="100%">
+                </a>
             </div>
+        </div>
+        <div class="col-md-10 col-xs-6 otherpagestitle">
+            <h4 style="float: right;">TEAM</h4>
         </div>
     </div>
 </div>
@@ -27,29 +18,34 @@
 
 
 <div class="background-image"></div>
-<div class="container">
+<div class="container ">
 
-    <div class="toppadding upspacer" ng-repeat="memeber in team">
+    <div class="row toppadding">
 
+        <div class="col-md-offset-4 col-md-4 textcenter">
+            <a class="btn btn-info btn-lg btnround" ng-click="gotohome()"><i class="fa fa-home"></i>Go Home</a>
+        </div>
+    </div>
 
-
+    <div class="toppadding upspacer" ng-if="!mobile" ng-repeat="memeber in team">
         <div class="row teamtextstyle" ng-if="$index % 2 == 0">
             <div class="col-md-3 textcenter">
 
-                <img class="img-responsive" src="images\picTeam\{{memeber.photo}}" style="display: initial;">
+                <img class="img-responsive" src="images\picTeam\{{memeber.photo}}" err-src="images/picTeam/error.png" style="display: initial;">
             </div>
             <div class="col-md-5">
-                <h4>{{memeber.name}}</h4>
-                <h5>{{memeber.designation}}</h5>
-                <p>{{memeber.desc}}</p>
+                <h4 ng-if="member.name != ''">{{memeber.name | capitalize}}</h4>
+                <h5 ng-if="member.designation != ''">{{memeber.designation | capitalize}}</h5>
+                <p ng-if="member.desc != ''">{{memeber.desc }}</p>
                 <div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.facebook != ''"><a href="{{memeber.facebook}}"><i class="fa fa-facebook-square" style="font-size: xx-large;"></i></a>
+
+                    <div class="teamsharediv" ng-if='member.facebook != "8"'>{{member.facebook}}<a href="{{memeber.facebook}}"><i class="fa fa-facebook-square" style="font-size: xx-large;"></i></a>
                     </div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.twitter != ''"><a href="{{memeber.twitter}}"><i class="fa fa-twitter" style="font-size: xx-large;" ></i></a>
+                    <div class="teamsharediv" ng-if="member.twitter != ''"><a href="{{memeber.twitter}}"><i class="fa fa-twitter" style="font-size: xx-large;" ></i></a>
                     </div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.google != ''"><a href="{{memeber.google}}"><i class="fa fa-google-plus-square" style="font-size: xx-large;"></i></a>
+                    <div class="teamsharediv" ng-if="member.google != ''"><a href="{{memeber.google}}"><i class="fa fa-google-plus-square" style="font-size: xx-large;"></i></a>
                     </div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.linkedin != ''"><a href="{{memeber.linkedin}}"><i class="fa fa-linkedin" style="font-size: xx-large;"></i></a>
+                    <div class="teamsharediv" ng-if="member.linkedin != ''"><a href="{{memeber.linkedin}}"><i class="fa fa-linkedin" style="font-size: xx-large;"></i></a>
                     </div>
                 </div>
             </div>
@@ -58,9 +54,9 @@
         <div class="row teamtextstyle" ng-if="$index % 2 != 0">
 
             <div class="col-md-offset-4 col-md-5">
-                <h4>{{memeber.name}}</h4>
-                <h5>{{memeber.designation}}</h5>
-                <p>{{memeber.desc}}</p>
+                <h4 ng-if="member.name != ''">{{memeber.name | capitalize}}</h4>
+                <h5 ng-if="member.designation != ''">{{memeber.designation | capitalize}}</h5>
+                <p ng-if="member.desc != ''">{{memeber.desc}}</p>
                 <div>
                     <div style="display: inline-block; padding: 10px;" ng-if="member.facebook != ''"><a href="{{memeber.facebook}}"><i class="fa fa-facebook-square" style="font-size: xx-large;"></i></a>
                     </div>
@@ -73,371 +69,45 @@
                 </div>
             </div>
             <div class="col-md-3 textcenter">
-                <img class="img-responsive" src="images\picTeam\{{memeber.photo}}" style="display: initial;">
+                <img class="img-responsive" src="images\picTeam\{{memeber.photo}}" err-src="images/picTeam/error.png" style="display: initial;">
             </div>
         </div>
 
+    </div>
 
 
-        <!--
-        <div class="row teamtextstyle">
-            <div class="col-md-3 textcenter" >
-
-                <img class="img-responsive" src="images/picTeam/akhil.png" style="display: initial;">
-            </div>
-            <div class="col-md-5">
-                <h4>Akhil</h4>
-                <h5>CEO</h5>
-                <p style="">Lorem ipsum dolor sit amet, consectetur adipiscing elit quisque tempus ac eget diam et laoreet phasellus ut nisi id leo molestie. adipiscing vitae vel quam proin eget mauris eget</p>
-                <div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.facebook != ''"><a href="www.facebook.com"><i class="fa fa-facebook-square" style="font-size: xx-large;"></i></a>
-                    </div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.twitter != ''"><a href="www.twitter.com"><i class="fa fa-twitter" style="font-size: xx-large;" ></i></a>
-                    </div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.google != ''"><a href="www.google.com"><i class="fa fa-google-plus-square" style="font-size: xx-large;"></i></a>
-                    </div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.linkedin != ''"><a href="https://in.linkedin.com"><i class="fa fa-linkedin" style="font-size: xx-large;"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row upspacer teamtextstyle">
-
-            <div class="col-md-offset-4 col-md-5">
-                <h4>Bharath Pasam</h4>
-                <h5>CEO</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit quisque tempus ac eget diam et laoreet phasellus ut nisi id leo molestie. adipiscing vitae vel quam proin eget mauris eget</p>
-                <div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.facebook != ''"><a href="www.facebook.com"><i class="fa fa-facebook-square" style="font-size: xx-large;"></i></a>
-                    </div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.twitter != ''"><a href="www.twitter.com"><i class="fa fa-twitter" style="font-size: xx-large;" ></i></a>
-                    </div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.google != ''"><a href="www.google.com"><i class="fa fa-google-plus-square" style="font-size: xx-large;"></i></a>
-                    </div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.linkedin != ''"><a href="https://in.linkedin.com"><i class="fa fa-linkedin" style="font-size: xx-large;"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 textcenter">
-                <img class="img-responsive" src="images/picTeam/bharath.png" style="display: initial;">
-            </div>
-        </div>
 
 
-        <div class="row teamtextstyle">
-            <div class="col-md-3 textcenter" >
-
-                <img class="img-responsive" src="images/picTeam/suresh.png" style="display: initial;">
-            </div>
-            <div class="col-md-5">
-                <h4>Suresh</h4>
-                <h5>CEO</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit quisque tempus ac eget diam et laoreet phasellus ut nisi id leo molestie. adipiscing vitae vel quam proin eget mauris eget</p>
-                <div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.facebook != ''"><a href="www.facebook.com"><i class="fa fa-facebook-square" style="font-size: xx-large;"></i></a>
-                    </div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.twitter != ''"><a href="www.twitter.com"><i class="fa fa-twitter" style="font-size: xx-large;" ></i></a>
-                    </div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.google != ''"><a href="www.google.com"><i class="fa fa-google-plus-square" style="font-size: xx-large;"></i></a>
-                    </div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.linkedin != ''"><a href="https://in.linkedin.com"><i class="fa fa-linkedin" style="font-size: xx-large;"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row upspacer teamtextstyle">
-            
-            <div class="col-md-offset-4 col-md-5">
-                <h4>Rohith</h4>
-                <h5>CEO</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit quisque tempus ac eget diam et laoreet phasellus ut nisi id leo molestie. adipiscing vitae vel quam proin eget mauris eget</p>
-                <div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.facebook != ''"><a href="www.facebook.com"><i class="fa fa-facebook-square" style="font-size: xx-large;"></i></a>
-                    </div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.twitter != ''"><a href="www.twitter.com"><i class="fa fa-twitter" style="font-size: xx-large;" ></i></a>
-                    </div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.google != ''"><a href="www.google.com"><i class="fa fa-google-plus-square" style="font-size: xx-large;"></i></a>
-                    </div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.linkedin != ''"><a href="https://in.linkedin.com"><i class="fa fa-linkedin" style="font-size: xx-large;"></i></a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-3 textcenter">
-                <img class="img-responsive" src="images/picTeam/rohith.png" style="display: initial;">
-            </div>
-        </div>
-
-        <div class="row teamtextstyle">
-            <div class="col-md-3 textcenter" >
-
-                <img class="img-responsive" src="images/picTeam/meraj.png" style="display:initial;">
-            </div>
-            <div class="col-md-5">
-                <h4>Meraj Faheem</h4>
-                <h5>CEO</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit quisque tempus ac eget diam et laoreet phasellus ut nisi id leo molestie. adipiscing vitae vel quam proin eget mauris eget</p>
-                <div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.facebook != ''"><a href="www.facebook.com"><i class="fa fa-facebook-square" style="font-size: xx-large;"></i></a>
-                    </div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.twitter != ''"><a href="www.twitter.com"><i class="fa fa-twitter" style="font-size: xx-large;" ></i></a>
-                    </div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.google != ''"><a href="www.google.com"><i class="fa fa-google-plus-square" style="font-size: xx-large;"></i></a>
-                    </div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.linkedin != ''"><a href="https://in.linkedin.com"><i class="fa fa-linkedin" style="font-size: xx-large;"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="row upspacer teamtextstyle">
-            
-            <div class="col-md-offset-4 col-md-5">
-                <h4>Manohar</h4>
-                <h5>CEO</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit quisque tempus ac eget diam et laoreet phasellus ut nisi id leo molestie. adipiscing vitae vel quam proin eget mauris eget</p>
-                <div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.facebook != ''"><a href="www.facebook.com"><i class="fa fa-facebook-square" style="font-size: xx-large;"></i></a>
-                    </div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.twitter != ''"><a href="www.twitter.com"><i class="fa fa-twitter" style="font-size: xx-large;" ></i></a>
-                    </div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.google != ''"><a href="www.google.com"><i class="fa fa-google-plus-square" style="font-size: xx-large;"></i></a>
-                    </div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.linkedin != ''"><a href="https://in.linkedin.com"><i class="fa fa-linkedin" style="font-size: xx-large;"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 textcenter">
-                <img class="img-responsive" src="images/picTeam/manohar.png" style="display:initial;">
-            </div>
-        </div>
-
-
+    <div class="toppadding upspacer" ng-if="mobile" ng-repeat="memeber in team">
         <div class="row teamtextstyle">
             <div class="col-md-3 textcenter">
 
-                <img class="img-responsive" src="images/picTeam/kiran.png" style="display:initial;">
+                <img class="img-responsive" src="images\picTeam\{{memeber.photo}}" err-src="images/picTeam/error.png" style="display: initial;">
             </div>
             <div class="col-md-5">
-                <h4>S Kiran Kumar</h4>
-                <h5>Coordinator – Team Training</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit quisque tempus ac eget diam et laoreet phasellus ut nisi id leo molestie. adipiscing vitae vel quam proin eget mauris eget</p>
-                <div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.facebook != ''"><a href="www.facebook.com"><i class="fa fa-facebook-square" style="font-size: xx-large;"></i></a>
+                <h4 class="textcenter" ng-if="member.name != ''">{{memeber.name | capitalize}}</h4>
+                <h5 class="textcenter" ng-if="member.designation != ''">{{memeber.designation | capitalize}}</h5>
+                <p class="textcenter" ng-if="member.desc != ''">{{memeber.desc}}</p>
+                <div class="textcenter">
+                    <div style="display: inline-block; padding: 10px;" ng-if="member.facebook != ''"><a href="{{memeber.facebook}}"><i class="fa fa-facebook-square" style="font-size: xx-large;"></i></a>
                     </div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.twitter != ''"><a href="www.twitter.com"><i class="fa fa-twitter" style="font-size: xx-large;" ></i></a>
+                    <div style="display: inline-block; padding: 10px;" ng-if="member.twitter != ''"><a href="{{memeber.twitter}}"><i class="fa fa-twitter" style="font-size: xx-large;" ></i></a>
                     </div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.google != ''"><a href="www.google.com"><i class="fa fa-google-plus-square" style="font-size: xx-large;"></i></a>
+                    <div style="display: inline-block; padding: 10px;" ng-if="member.google != ''"><a href="{{memeber.google}}"><i class="fa fa-google-plus-square" style="font-size: xx-large;"></i></a>
                     </div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.linkedin != ''"><a href="https://in.linkedin.com"><i class="fa fa-linkedin" style="font-size: xx-large;"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row upspacer teamtextstyle">
-           
-            <div class="col-md-offset-4 col-md-5">
-                <h4>Vijay Santhosh</h4>
-                <h5>Spokesperson</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit quisque tempus ac eget diam et laoreet phasellus ut nisi id leo molestie. adipiscing vitae vel quam proin eget mauris eget</p>
-                <div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.facebook != ''"><a href="www.facebook.com"><i class="fa fa-facebook-square" style="font-size: xx-large;"></i></a>
-                    </div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.twitter != ''"><a href="www.twitter.com"><i class="fa fa-twitter" style="font-size: xx-large;" ></i></a>
-                    </div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.google != ''"><a href="www.google.com"><i class="fa fa-google-plus-square" style="font-size: xx-large;"></i></a>
-                    </div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.linkedin != ''"><a href="https://in.linkedin.com"><i class="fa fa-linkedin" style="font-size: xx-large;"></i></a>
-                    </div>
-                </div>
-            </div>
-             <div class="col-md-3 textcenter">
-                <img class="img-responsive" src="images/picTeam/vijay.png" style="display:initial;">
-            </div>
-        </div>
-
-        <div class="row teamtextstyle">
-            <div class="col-md-3 textcenter">
-
-                <img class="img-responsive" src="images/picTeam/surya.png" style="display:initial;">
-            </div>
-            <div class="col-md-5">
-                <h4>Surya Prabha</h4>
-                <h5>Content Specialist</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit quisque tempus ac eget diam et laoreet phasellus ut nisi id leo molestie. adipiscing vitae vel quam proin eget mauris eget</p>
-                <div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.facebook != ''"><a href="www.facebook.com"><i class="fa fa-facebook-square" style="font-size: xx-large;"></i></a>
-                    </div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.twitter != ''"><a href="www.twitter.com"><i class="fa fa-twitter" style="font-size: xx-large;" ></i></a>
-                    </div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.google != ''"><a href="www.google.com"><i class="fa fa-google-plus-square" style="font-size: xx-large;"></i></a>
-                    </div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.linkedin != ''"><a href="https://in.linkedin.com"><i class="fa fa-linkedin" style="font-size: xx-large;"></i></a>
+                    <div style="display: inline-block; padding: 10px;" ng-if="member.linkedin != ''"><a href="{{memeber.linkedin}}"><i class="fa fa-linkedin" style="font-size: xx-large;"></i></a>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="row upspacer teamtextstyle">
-            
-            <div class="col-md-offset-4 col-md-5">
-                <h4>Santosh Ajmeera</h4>
-                <h5>Digital Marketing Professional</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit quisque tempus ac eget diam et laoreet phasellus ut nisi id leo molestie. adipiscing vitae vel quam proin eget mauris eget</p>
-                <div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.facebook != ''"><a href="www.facebook.com"><i class="fa fa-facebook-square" style="font-size: xx-large;"></i></a>
-                    </div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.twitter != ''"><a href="www.twitter.com"><i class="fa fa-twitter" style="font-size: xx-large;" ></i></a>
-                    </div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.google != ''"><a href="www.google.com"><i class="fa fa-google-plus-square" style="font-size: xx-large;"></i></a>
-                    </div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.linkedin != ''"><a href="https://in.linkedin.com"><i class="fa fa-linkedin" style="font-size: xx-large;"></i></a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-3 textcenter">
-                <img class="img-responsive" src="images/picTeam/noname.png" style="display:initial;">
-            </div>
+    </div>
+
+</div>
+<div class="otherfooter">
+    <div class="row">
+        <div class="col-md-6 text-left copy">
+            <p>Copyright &copy; 2016 Pixolo Webworks. All Rights Reserved.</p>
         </div>
-
-        <div class="row teamtextstyle">
-            <div class="col-md-3 textcenter">
-
-                <img class="img-responsive" src="images/picTeam/avinash.png" style="display: initial;">
-            </div>
-            <div class="col-md-5">
-                <h4>Avinash Singh</h4>
-                <h5>Logistics Coordinator</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit quisque tempus ac eget diam et laoreet phasellus ut nisi id leo molestie. adipiscing vitae vel quam proin eget mauris eget</p>
-                <div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.facebook != ''"><a href="www.facebook.com"><i class="fa fa-facebook-square" style="font-size: xx-large;"></i></a>
-                    </div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.twitter != ''"><a href="www.twitter.com"><i class="fa fa-twitter" style="font-size: xx-large;" ></i></a>
-                    </div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.google != ''"><a href="www.google.com"><i class="fa fa-google-plus-square" style="font-size: xx-large;"></i></a>
-                    </div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.linkedin != ''"><a href="https://in.linkedin.com"><i class="fa fa-linkedin" style="font-size: xx-large;"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row upspacer teamtextstyle">
-            
-            <div class="col-md-offset-4 col-md-5">
-                <h4>Raju Kanchibhotla</h4>
-                <h5>CEO</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit quisque tempus ac eget diam et laoreet phasellus ut nisi id leo molestie. adipiscing vitae vel quam proin eget mauris eget</p>
-                <div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.facebook != ''"><a href="www.facebook.com"><i class="fa fa-facebook-square" style="font-size: xx-large;"></i></a>
-                    </div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.twitter != ''"><a href="www.twitter.com"><i class="fa fa-twitter" style="font-size: xx-large;" ></i></a>
-                    </div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.google != ''"><a href="www.google.com"><i class="fa fa-google-plus-square" style="font-size: xx-large;"></i></a>
-                    </div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.linkedin != ''"><a href="https://in.linkedin.com"><i class="fa fa-linkedin" style="font-size: xx-large;"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 textcenter">
-                <img class="img-responsive" src="images/picTeam/raju.png" style="display:initial;">
-            </div>
-        </div>
-
-        <div class="row teamtextstyle">
-            <div class="col-md-3 textcenter">
-
-                <img class="img-responsive" src="images/picTeam/aniittha.png" style="display:initial;">
-            </div>
-            <div class="col-md-5">
-                <h4>Aniithha Sakuru</h4>
-                <h5>CEO</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit quisque tempus ac eget diam et laoreet phasellus ut nisi id leo molestie. adipiscing vitae vel quam proin eget mauris eget</p>
-                <div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.facebook != ''"><a href="www.facebook.com"><i class="fa fa-facebook-square" style="font-size: xx-large;"></i></a>
-                    </div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.twitter != ''"><a href="www.twitter.com"><i class="fa fa-twitter" style="font-size: xx-large;" ></i></a>
-                    </div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.google != ''"><a href="www.google.com"><i class="fa fa-google-plus-square" style="font-size: xx-large;"></i></a>
-                    </div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.linkedin != ''"><a href="https://in.linkedin.com"><i class="fa fa-linkedin" style="font-size: xx-large;"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row upspacer teamtextstyle">
-            
-            <div class="col-md-offset-4 col-md-5">
-                <h4>Kalyani Simham</h4>
-                <h5>Chief Coordinator</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit quisque tempus ac eget diam et laoreet phasellus ut nisi id leo molestie. adipiscing vitae vel quam proin eget mauris eget</p>
-                <div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.facebook != ''"><a href="www.facebook.com"><i class="fa fa-facebook-square" style="font-size: xx-large;"></i></a>
-                    </div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.twitter != ''"><a href="www.twitter.com"><i class="fa fa-twitter" style="font-size: xx-large;" ></i></a>
-                    </div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.google != ''"><a href="www.google.com"><i class="fa fa-google-plus-square" style="font-size: xx-large;"></i></a>
-                    </div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.linkedin != ''"><a href="https://in.linkedin.com"><i class="fa fa-linkedin" style="font-size: xx-large;"></i></a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-3 textcenter">
-                <img class="img-responsive" src="images/picTeam/kalyani.png" style="display:initial;">
-            </div>
-        </div>
-
-        <div class="row teamtextstyle">
-            <div class="col-md-3 textcenter">
-
-                <img class="img-responsive" src="images/picTeam/yogesh.png" style="display:initial;">
-            </div>
-            <div class="col-md-5">
-                <h4>Yogesh Bala</h4>
-                <h5>CEO</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit quisque tempus ac eget diam et laoreet phasellus ut nisi id leo molestie. adipiscing vitae vel quam proin eget mauris eget</p>
-                <div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.facebook != ''"><a href="www.facebook.com"><i class="fa fa-facebook-square" style="font-size: xx-large;"></i></a>
-                    </div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.twitter != ''"><a href="www.twitter.com"><i class="fa fa-twitter" style="font-size: xx-large;" ></i></a>
-                    </div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.google != ''"><a href="www.google.com"><i class="fa fa-google-plus-square" style="font-size: xx-large;"></i></a>
-                    </div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.linkedin != ''"><a href="https://in.linkedin.com"><i class="fa fa-linkedin" style="font-size: xx-large;"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row upspacer teamtextstyle">
-           
-            <div class="col-md-offset-4 col-md-5">
-                <h4>R Ramkumar</h4>
-                <h5>Chief Promoter</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit quisque tempus ac eget diam et laoreet phasellus ut nisi id leo molestie. adipiscing vitae vel quam proin eget mauris eget</p>
-                <div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.facebook != ''"><a href="www.facebook.com"><i class="fa fa-facebook-square" style="font-size: xx-large;"></i></a>
-                    </div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.twitter != ''"><a href="www.twitter.com"><i class="fa fa-twitter" style="font-size: xx-large;" ></i></a>
-                    </div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.google != ''"><a href="www.google.com"><i class="fa fa-google-plus-square" style="font-size: xx-large;"></i></a>
-                    </div>
-                    <div style="display: inline-block; padding: 10px;" ng-if="member.linkedin != ''"><a href="https://in.linkedin.com"><i class="fa fa-linkedin" style="font-size: xx-large;"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 textcenter">
-                <img class="img-responsive" src="images/picTeam/ramkumar.png" style="display:initial;">
-            </div>
-        </div>
--->
-
     </div>
 </div>

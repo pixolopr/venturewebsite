@@ -8,7 +8,7 @@
  	 function __construct(){ 
  	 	 parent::__construct(); 
  
- 	 	 $this->load->model('User_Model', 'model'); 
+ 	 	 $this->load->model('User_model', 'model'); 
  	 } 
 
  	 public function index() 
@@ -31,6 +31,12 @@
         $password = $this->input->get('password');
         $contact = $this->input->get('contact');
  	 	$message['json'] = $this->model->signinuser($email, $password, $contact);
+ 	 	$this->load->view('json', $message);
+     }
+     
+     public function subscribe(){
+        $email = $this->input->get('email');
+         $message['json'] = $this->model->subscribe($email);
  	 	$this->load->view('json', $message);
      }
      

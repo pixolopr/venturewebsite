@@ -76,7 +76,7 @@
 	margin:0;
 }
 #wowslider-container1 .ws_images > div > img {
-	max-height:360px;
+	/*max-height:360px;*/
 }
 
 #wowslider-container1 .ws_images iframe {

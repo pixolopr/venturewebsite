@@ -1,49 +1,63 @@
 <!--home start-->
 <div class="loginstyle" ng-if="logindiv">
-    <div class="row loginstylerow" >
+
+    <div class="row loginstylerow">
+        <button ng-click="closelogindiv()" class="col-md-offset-5 col-md-6 upspacer loginlink"><span>Skip and Enter Website</span></button>
         <div class="col-md-6">
-            <img src="images/logo_sketched.png">
+
+            <img class="sketchedlogoimage" src="images/logo_sketched.png">
         </div>
-        <div class="col-md-6 row">
+        <div class="col-md-6 row formpage">
             <div class="col-md-3 col-xs-0"></div>
             <div class="col-md-6 col-xs-12">
-                <h3> {{form.toptext}} <button class="btn btn-danger signupbtn" ng-click="changetype()">{{form.topbtn}}</button></h3>
+                <h3> {{form.toptext}} &nbsp; <button class="btn btn-danger signupbtn" ng-click="changetype()">{{form.topbtn}}</button></h3>
 
 
                 <form class="textcenter">
                     <div class="form-group textcenter">
-                        <label for="exampleInputEmail1">Email address</label>
+                        <!--                        <label for="exampleInputEmail1">Email address</label>-->
                         <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email" ng-model="user.email">
                     </div>
                     <div class="form-group textcenter">
-                        <label for="exampleInputPassword1">Password</label>
+                        <!--                        <label for="exampleInputPassword1">Password</label>-->
                         <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" ng-model="user.password">
                     </div>
-                    
+
                     <div class="form-group textcenter" ng-if="form.type == 0">
-                        <label for="exampleInputPhone">Phone</label>
+                        <!--                        <label for="exampleInputPhone">Phone</label>-->
                         <input type="tel" class="form-control" id="exampleInputPhone" placeholder="Phone" ng-model="user.contact">
+
+                    </div>
+                    <div class="form-group" ng-if="form.type == 0">
+
+                        <input type="checkbox" id="check" ng-model="user.subscription" ng-change="console.log(user)">
+                        <h5> Subscribe to our newsletter</h5>
                     </div>
 
-                    <div class="col-md-offset-4 col-md-4 textcenter">
+                    <div class="col-md-offset-3 col-md-4 textcenter">
                         <a class="btn btn-info btn-lg btnround" ng-click="signin()"><i class="fa fa-sign-in"></i>{{form.mainbtn}}</a>
                     </div>
+
                 </form>
-                <p style="color:red">{{errormsg}}</p>
+                <br>
+                <br>
+                <div>
+                    <p style="color:yellow">{{errormsg}}</p>
+                </div>
             </div>
             <div class="col-md-3"></div>
 
         </div>
     </div>
 
-    <a ng-click="closelogindiv()" class="col-md-offset-5 col-md-6 upspacer">Skip and Enter Website</a>
+
 
 
 </div>
 <div id="home">
-    <div class="headerLine" style="height:738px">
+    <div class="headerLine">
         <div id="wowslider-container1" style="z-index:0">
-            <div class="ws_images" style="height:650px">
+            <div class="ws_images">
                 <ul>
                     <li><img src="data1/images/pic1.jpg" alt="Idea" title="" id="wows1_0" />
                     </li>
@@ -54,15 +68,6 @@
                     </li>
                 </ul>
             </div>
-<!--
-            <div class="ws_bullets">
-                <div>
-                    <a href="#" title="Idea"><span><img src="data1/tooltips/pic1.jpg" alt="Idea"/>1</span></a>
-                    <a href="#" title="Startup"><span><img src="data1/tooltips/pic2.jpg" alt="Startup"/>2</span></a>
-                    <a href="#" title="Success"><span><img src="data1/tooltips/pic3.jpg" alt="Success"/>3</span></a>
-                </div>
-            </div>
--->
             <div class="ws_script" style="position:absolute;left:-99%"></div>
             <div class="ws_shadow"></div>
         </div>
@@ -199,42 +204,104 @@ Hyderabad.</h4>
             </div>
         </div>
     </div>
+    <div class="container">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+                <li data-target="#myCarousel" data-slide-to="3"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+                <div class="row item" ng-repeat="a in team | limitTo: team.length/4" ng-class="{'active':$index==0}">
+                   {{$scope.a = $parent.$index * 4}}
+                   {{$scope.b = ($parent.$index * 4) + 4}}
+                    <div class="col-md-3 b1 member teammemberdiv" ng-repeat="member in team | slice:a:b">
+                       {{$parent.$index*4}}{{($parent.$index*4) + 4}}
+                        <div class="">
+                            <div class="teammemberdivinner">
+                                <img class="img-responsive teamphoto" src="images/picTeam/{{member.photo}}" ng-if="member.photo != ''">
+                                <img class="img-responsive teamphoto" src="images/picTeam/error.png" ng-if="member.photo == ''">
+                                <h4 ng-if="member.name != ''">{{member.name}}</h4>
+                                <h5 ng-if="member.designation != ''" style="color: #A86A42;">{{member.designation}}</h5>
+                                <p ng-if="member.desc != ''">{{member.desc}}</p>
+                                <div>
+                                    <div style="display: inline-block; padding: 10px;" ng-if="member.facebook != ''"><a href="{{member.facebook}}"><i class="fa fa-facebook-square" style="font-size: xx-large;"></i></a>
+                                    </div>
+                                    <div style="display: inline-block; padding: 10px;" ng-if="member.twitter != ''"><a href="{{member.twitter}}"><i class="fa fa-twitter" style="font-size: xx-large;" ></i></a>
+                                    </div>
+                                    <div style="display: inline-block; padding: 10px;" ng-if="member.google != ''"><a href="{{member.google}}"><i class="fa fa-google-plus-square" style="font-size: xx-large;"></i></a>
+                                    </div>
+                                    <div style="display: inline-block; padding: 10px;" ng-if="member.linkedin != ''"><a href="{{member.linkedin}}"><i class="fa fa-linkedin" style="font-size: xx-large;"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+            </div>
+
+
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        $('.carousel-control').click(function (e) {
+            e.preventDefault();
+        });
+    </script>
 
     <div class="container">
 
-        <div class="teamdiv">
 
-            <div class="col-md-3 b1 member teammemberdiv" ng-repeat="number in teamarray">
+        <div class="teamdiv" ng-class="{mobileheight: mobile, desktopheight: !mobile}">
+
+
+            <div class="col-md-3 b1 member teammemberdiv" ng-repeat="member in team | limitTo:4">
                 <div class="teammemberdivinner">
-                    <img class="img-responsive teamphoto" src="images/picTeam/{{team[number].photo}}">
-                    <h4>{{team[number].name}}</h4>
-                    <h5>{{team[number].designation}}</h5>
-                    <p>{{team[number].desc}}</p>
+                    <img class="img-responsive teamphoto" src="images/picTeam/{{member.photo}}" ng-if="member.photo != ''">
+                    <img class="img-responsive teamphoto" src="images/picTeam/error.png" ng-if="member.photo == ''">
+                    <h4 ng-if="member.name != ''">{{member.name}}</h4>
+                    <h5 ng-if="member.designation != ''" style="color: #A86A42;">{{member.designation}}</h5>
+                    <p ng-if="member.desc != ''">{{member.desc}}</p>
                     <div>
-                        <div style="display: inline-block; padding: 10px;" ng-if="member.facebook != ''"><a href="{{team[number].facebook}}"><i class="fa fa-facebook-square" style="font-size: xx-large;"></i></a>
+                        <div style="display: inline-block; padding: 10px;" ng-if="member.facebook != ''"><a href="{{member.facebook}}"><i class="fa fa-facebook-square" style="font-size: xx-large;"></i></a>
                         </div>
-                        <div style="display: inline-block; padding: 10px;" ng-if="member.twitter != ''"><a href="{{team[number].twitter}}"><i class="fa fa-twitter" style="font-size: xx-large;" ></i></a>
+                        <div style="display: inline-block; padding: 10px;" ng-if="member.twitter != ''"><a href="{{member.twitter}}"><i class="fa fa-twitter" style="font-size: xx-large;" ></i></a>
                         </div>
-                        <div style="display: inline-block; padding: 10px;" ng-if="member.google != ''"><a href="{{team[number].google}}"><i class="fa fa-google-plus-square" style="font-size: xx-large;"></i></a>
+                        <div style="display: inline-block; padding: 10px;" ng-if="member.google != ''"><a href="{{member.google}}"><i class="fa fa-google-plus-square" style="font-size: xx-large;"></i></a>
                         </div>
-                        <div style="display: inline-block; padding: 10px;" ng-if="member.linkedin != ''"><a href="{{team[number].linkedin}}"><i class="fa fa-linkedin" style="font-size: xx-large;"></i></a>
+                        <div style="display: inline-block; padding: 10px;" ng-if="member.linkedin != ''"><a href="{{member.linkedin}}"><i class="fa fa-linkedin" style="font-size: xx-large;"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!--        <button ng-click="gototeam()">CHANGE</button>-->
-        <div class="container">
-            <!--
-            <div class="row cBtn">
-                <div class="col-md-12" style="text-align: center; margin-bottom: -90px; z-index: 3;">
-                    <ul class="mNews">
-                        <li class="dowbload bhide2"><a ng-click="gototeam()"><i class="fa fa-arrow-down"></i>View Full team</a></li>
-                    </ul>
 
-                </div>
-            </div>
--->
+        </div>
+        <div class="textcenter">
+            <i class="fa fa-circle dot" ng-class="{'dotchecked' : dotstatus[0]}" aria-hidden="true" ng-click="dotclicked(0, 16)"></i>
+            <i class="fa fa-circle dot" ng-class="{'dotchecked' : dotstatus[1]}" aria-hidden="true" ng-click="dotclicked(1, 0)"></i>
+            <i class="fa fa-circle dot" ng-class="{'dotchecked' : dotstatus[2]}" aria-hidden="true" ng-click="dotclicked(2, 4)"></i>
+            <i class="fa fa-circle dot" ng-class="{'dotchecked' : dotstatus[3]}" aria-hidden="true" ng-click="dotclicked(3, 8)"></i>
+            <i class="fa fa-circle dot" ng-class="{'dotchecked' : dotstatus[4]}" aria-hidden="true" ng-click="dotclicked(4, 12)"></i>
+
+        </div>
+
+        <div class="container">
             <div class="row">
                 <div class="col-md-offset-4 col-md-4 textcenter">
                     <a class="btn btn-info btn-lg btnround" ng-click="gototeam()"><i class="fa fa-arrow-down"></i>View Full Team</a>
@@ -267,15 +334,15 @@ Hyderabad.</h4>
                 <div class="col-md-6">
                     <div class="about1">
                         <img class="pic1Ab" src="images/picAbout/{{people[0].photo}}" style="max-height: 200px; !important">
-                        <h3>{{people[0].name}}</h3>
-                        <p>{{people[0].content}}</p>
+                        <h3>{{people[0].name | capitalize}}</h3>
+                        <p>{{people[0].content | capitalize}}</p>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="about2">
                         <img class="pic2Ab" src="images/picAbout/{{people[1].photo}}" style="max-height: 200px;">
-                        <h3>{{people[1].name}}</h3>
-                        <p>{{people[1].content}}</p>
+                        <h3>{{people[1].name | capitalize}}</h3>
+                        <p>{{people[1].content | capitalize}}</p>
                     </div>
                 </div>
             </div>
@@ -288,15 +355,15 @@ Hyderabad.</h4>
                 <div class="col-md-6">
                     <div class="about1">
                         <img class="pic1Ab" src="images/picAbout/{{people[2].photo}}" style="max-height: 200px; !important">
-                        <h3>{{people[2].name}}</h3>
-                        <p>{{people[2].content}}</p>
+                        <h3>{{people[2].name | capitalize}}</h3>
+                        <p>{{people[2].content | capitalize}}</p>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="about2">
                         <img class="pic2Ab" src="images/picAbout/{{people[3].photo}}" style="max-height: 200px;">
-                        <h3>{{people[3].name}}</h3>
-                        <p>{{people[3].content}}</p>
+                        <h3>{{people[3].name | capitalize}}</h3>
+                        <p>{{people[3].content | capitalize}}</p>
                     </div>
                 </div>
             </div>
@@ -321,24 +388,23 @@ Hyderabad.</h4>
         <h2 class="textcenter">Upcoming Events</h2>
         <hr class="hrNews">
         <div class="row news downspacer">
-            <div class="col-md-6  text-left" ng-repeat="event in events">
+            <div class="col-md-6  text-left" ng-repeat="event in events" ng-if="event.status=='true'">
                 <div class="row">
                     <div class="col-md-6">
-                        <img class="img-responsive picsGall" src="images/eventpic.png" />
+                        <img class="img-responsive picsGall" src="{{event.image | imagepath}}" />
                     </div>
                     <div class="col-md-6">
-                        <h3 class="eventname">Event Name</h3>
+                        <h3 class="eventname" ng-if="event.name != ''">{{event.name | capitalize}}</h3>
                         <hr class="hrNews">
-                        <p class="textcenter"><i class="fa fa-calendar"></i> 24th April, 2016
+                        <p class="textcenter" ng-if="event.timestamp != ''"><i class="fa fa-calendar"></i> {{event.timestamp}}
                         </p>
-                        <p class="textcenter">
-                            <srong class="eventlabels">Venue:</srong> Event Venue</p>
-                        <p class="textcenter">
-                            <srong class="eventlabels">Purpose:</srong> Event Purpose</p>
-                        <p class="textcenter">
-                            <srong class="eventlabels">Guest Speaker:</srong> Event guest speaker</p>
-                        <p class="textcenter">
-                            <srong class="eventlabels">Tags:</srong> Event Tag List</p>
+                        <p class="textcenter" ng-if="event.venue != ''">
+                            <srong class="eventlabels">Venue:</srong>{{event.venue | capitalize}}</p>
+                        <p class="textcenter" ng-if="event.purpose != ''">
+                            <srong class="eventlabels">Purpose:</srong>{{event.purpose | capitalize}}</p>
+                        <p class="textcenter" ng-if="event.guest_speaker != ''">
+                            <srong class="eventlabels">Guest Speaker: </srong>{{event.guest_speaker | capitalize}}</p>
+
 
                     </div>
                 </div>
@@ -349,25 +415,22 @@ Hyderabad.</h4>
         <h2 class="textcenter">Past Events</h2>
         <hr class="hrNews">
         <div class="row news downspacer">
-            <div class="col-md-6  text-left" ng-repeat="event in events">
+            <div class="col-md-6  text-left" ng-repeat="event in events" ng-if="event.status=='false'">
                 <div class="row">
                     <div class="col-md-6">
-                        <img class="img-responsive picsGall" src="images/eventpic.png" />
+                        <img class="img-responsive picsGall" src="{{event.image | imagepath}}" />
                     </div>
                     <div class="col-md-6">
-                        <h3 class="eventname">Event Name</h3>
+                        <h3 class="eventname" ng-if="event.name != ''">{{event.name | capitalize}}</h3>
                         <hr class="hrNews">
-                        <p class="textcenter"><i class="fa fa-calendar"></i> 24th April, 2016
+                        <p class="textcenter" ng-if="event.timestamp != ''"><i class="fa fa-calendar"></i> {{event.timestamp}}
                         </p>
-                        <p class="textcenter">
-                            <srong class="eventlabels">Venue:</srong> Event Venue</p>
-                        <p class="textcenter">
-                            <srong class="eventlabels">Purpose:</srong> Event Purpose</p>
-                        <p class="textcenter">
-                            <srong class="eventlabels">Guest Speaker:</srong> Event guest speaker</p>
-                        <p class="textcenter">
-                            <srong class="eventlabels">Tags:</srong> Event Tag List</p>
-
+                        <p class="textcenter" ng-if="event.venue != ''">
+                            <srong class="eventlabels">Venue:</srong> {{event.venue | capitalize}}</p>
+                        <p class="textcenter" ng-if="event.purpose != ''">
+                            <srong class="eventlabels">Purpose:</srong> {{event.purpose | capitalize}}</p>
+                        <p class="textcenter" ng-if="event.guest_speaker != ''">
+                            <srong class="eventlabels">Guest Speaker: </srong>{{event.guest_speaker | capitalize}}</p>
                     </div>
                 </div>
             </div>
@@ -385,8 +448,7 @@ Hyderabad.</h4>
 </div>
 
 
-<!--news start-->
-
+<!--newsletter start-->
 <div id="news">
     <div class="line4">
         <div class="container">
@@ -405,8 +467,16 @@ Hyderabad.</h4>
         </div>
         <div class="row news">
             <div class="col-md-3  text-left" ng-repeat="newsletter in newsletters">
-                <img class="img-responsive picsGall" src="{{newsletter.image}}" />
-                <h3><a href="#"><i class="fa fa-calendar"></i> {{newsletter.month}}, {{newsletter.year}}</a></h3>
+
+                <a href="{{newsletter.pdf | imagepath}}" target="_blank">
+
+                    <img class="img-responsive picsGall" src="images/newsletter.png" />
+
+                </a>
+
+                <h3><a href="{{newsletter.pdf | imagepath}}" target="_blank"><i class="fa fa-calendar"></i> {{newsletter.date | timestampToISO | date:'dd MMMM, yyyy'}}</a></h3>
+
+
                 <hr class="hrNews">
             </div>
         </div>
@@ -439,39 +509,11 @@ Hyderabad.</h4>
 
 
     <div class="container">
-
         <div class="row">
-            <!-- filter_block -->
-            <!--<div id="options" class="col-md-12" style="text-align: center;">
-                <ul id="filter" class="option-set" data-option-key="filter">
-                    <li><a class="selected" href="#filter" data-option-value="*" class="current">All Works</a></li>
-                    <li><a href="#filter" data-option-value=".polygraphy">Polygraphy</a></li>
-                    <li><a href="#filter" data-option-value=".branding">Branding</a></li>
-                    <li><a href="#filter" data-option-value=".web">Web UI</a></li>
-                    <li><a href="#filter" data-option-value=".text_styles">Text Styles</a></li>
-                </ul>
-            </div>-->
-            <!-- //filter_block -->
             <div class="row">
                 <h2 class="textcenter">Images</h2>
                 <hr class="hrNews">
             </div>
-
-            <!--
-            <div class="container">
-                <div class="row">
-                    <div class="element col-sm-4 gall branding" style="height:280px" ng-repeat="image in galimages">
-                        <a style="height:85%" class="" href="newsletters/cover1.png">
-                            <img class="img-responsive picsGall galimage" src="newsletters/cover1.png" style="height:85% !important" />
-                        </a>
-                        <div class="view project_descr ">
-                            <h3><a href="#">Image Title</a></h3>
-                        </div>
-                </div>
-            </div>
-            </div>
--->
-
 
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog" role="document">
@@ -482,15 +524,14 @@ Hyderabad.</h4>
 
 
 
-                            <h4 class="modal-title" id="myModalLabel">IMAGE TITLE</h4>
+                            <h4 class="modal-title" id="myModalLabel">{{modaltitle | capitalize}}</h4>
+                            <div class="row">
+                                <button class="btnlightbox" style="float:left; padding-left:15px;" ng-click="previousmodalimage()">Previous</button>
+                                <button class="btnlightbox" style="float:right; padding-right:15px;" ng-click="nextmodalimage()">Next</button>
+                            </div>
                         </div>
                         <div class="modal-body textcenter" style="height:auto; max-height:700px">
-                            <img class=" picsGall" ng-src="{{modalimage}}" style="max-height: 600px; position:relative;">
-
-                            <button type="button" class="btnnextprev" aria-label="Previous" style="margin-left: -436px; margin-top: 248px; position:absolute;" ng-click="previousmodalimage()"><i class="fa fa-angle-left iconsize" aria-hidden="true"></i>
-                            </button>
-                            <button type="button" class="btnnextprev" aria-label="Next" style="margin-left: -41px; margin-top:248px; position:absolute;" ng-click="nextmodalimage()"><i class="fa fa-angle-right iconsize" aria-hidden="true"></i>
-                            </button>
+                            <img class=" picsGall" ng-src="{{modalimage | imagepath}}" style="max-height: 600px; position:relative;">
 
                         </div>
                     </div>
@@ -500,9 +541,9 @@ Hyderabad.</h4>
             <div class="container">
                 <div class="row">
                     <div class="element col-sm-4 gall branding" style="height:280px" data-toggle="modal" data-target="#myModal" ng-click="showmodal($index)" ng-repeat="image in galimages">
-                        <img class="img-responsive picsGall galimage" ng-src="{{image.image}}" style="height:85% !important" />
-                        <div class="view project_descr ">
-                            <h3 class="imagetext">{{image.title}}</h3>
+                        <img class="img-responsive picsGall galimage" src="{{image.image | imagepath}}" style="height:70% !important" />
+                        <div class="view project_descr " ng-if="image.title != ''">
+                            <h4 class="imagetext textcenter">{{image.title | capitalize}}</h4>
                         </div>
                     </div>
                 </div>
@@ -512,15 +553,8 @@ Hyderabad.</h4>
 
 
             <div class="container">
-                <!--<div class="row cBtn">
-                    <div class="col-md-12" ng-click="gotophotos()" style="text-align: center; z-index: 3;">
-                        <button class="mNews">
-                            <li class="dowbload bhide2"><a><i class="fa fa-arrow-down"></i>View Full team</a></li>
-                        </button>
 
-                    </div>
-                </div>-->
-                <div class="row">
+                <div class="row upspacer">
                     <div class="col-md-offset-4 col-md-4 textcenter">
                         <a class="btn btn-info btn-lg btnround" ng-click="gotophotos()"><i class="fa fa-arrow-down"></i>Load More Photos</a>
                     </div>
@@ -529,321 +563,307 @@ Hyderabad.</h4>
 
         </div>
     </div>
-    <div id="video" style="margin-top: 70px;">
-
-
-
-        <div class="line4">
-            <div class="container">
-                <div class="row Ama">
-                    <div class="col-md-12 upspacer">
-                        <h3>Motion Pictures</h3>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="container upspacer">
-            <div class="row">
-                <h2 class="textcenter">Videos</h2>
-                <hr class="hrNews">
-            </div>
-            <div class="portfolio_block columns3   pretty" data-animated="fadeIn">
-                <div class="element col-sm-4   gall branding" style="height:280px" ng-repeat="video in videos">
-                    <a style="height:85%" class="plS" href="newsletters/cover1.png" rel="prettyPhoto[gallery2]">
-                        <img class="img-responsive picsGall galimage" src="newsletters/cover1.png" alt="pic1 Gallery" />
-                    </a>
-                    <div class="view project_descr ">
-                        <h3><a href="#">Video Title</a></h3>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <!--
-            <div class="row">
-                <div class="col-md-12" style="text-align: center; z-index: 3;">
-                    <a ng-click="gotovideos()">
-                        <ul class="mNews">
-                            <li class="dowbload bhide2"><i class="fa fa-arrow-down"></i>Load More Videos</li>
-                        </ul>
-                    </a>
-
-                </div>
-            </div>
--->
-                <div class="row">
-                    <div class="col-md-offset-4 col-md-4 textcenter">
-                        <a class="btn btn-info btn-lg btnround" ng-click="gotovideos()"><i class="fa fa-arrow-down"></i>Load More Videos</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
+<div id="video" style="margin-top: 70px;">
 
 
-<!--contact start-->
 
-<div id="contact" style="margin-top: 70px;">
-    <div class="line5">
+    <div class="line4">
         <div class="container">
             <div class="row Ama">
-                <div class="col-md-12">
-                    <h3>Got a Question? We&rsquo;re Here to Help!</h3>
-                    <p>Get in touch with us</p>
+                <div class="col-md-12 upspacer">
+                    <h3>Motion Pictures</h3>
+
                 </div>
             </div>
         </div>
     </div>
-    <div class="container" style="margin-bottom:100px">
+
+
+    <div class="container upspacer">
         <div class="row">
-            <div class="col-md-7 col-xs-12 forma">
-                <form class="col-md-12 col-xs-12 row">
-                    <div class="col-md-6 col-xs-12">
-                        <input type="text" class=" name" name='name' placeholder='Name *' />
-                    </div>
-                    <div class="col-md-6 col-xs-12">
-                        <input type="text" class="Email" name='Email' placeholder='Email *' />
-                    </div>
-                    <div class="col-md-12 col-xs-12">
-                        <select name='Subject' placeholder='Subject' class="selectfield ">
-                            <option>Feedback about website</option>
-                            <option>Feedback about programs</option>
-                            <option>Appreciation</option>
-                            <option>Looking for mentoring or advice</option>
-                            <option>Collaboration</option>
-                            <option>Invitation</option>
-                            <option>Other</option>
-                        </select>
-                    </div>
-                    <div class="col-md-12 col-xs-12">
-                        <textarea type="text" class="col-md-12 col-xs-12 Message" name='Message' placeholder='Message *'></textarea>
-                    </div>
-
-
-
-                    <div class="cBtn col-md-12 col-xs-12">
-                        <ul>
-                            <li class="clear"><a href="#"><i class="fa fa-times"></i>clear form</a>
-                            </li>
-                            <li class="send"><a href="#"><i class="fa fa-share"></i>Send Message</a>
-                            </li>
-                        </ul>
-                    </div>
-                </form>
-            </div>
-            <div class="col-md-5 col-xs-12 cont">
-                <ul>
-                    <li><i class="fa fa-home"></i>Flat No 319, Block A, Western Plaza, </br> OU Colony, Shaikpet, Hyderabad - 08</li>
-                    <li><i class="fa fa-phone"></i>+91 7799617889</li>
-                    <li><a href="#"><i class="fa fa-envelope"></i>contactus@venturestartups.in</li></a>
-                        <li><a href="https://www.linkedin.com/company/venture-startups"><i class="fa fa-linkedin"></i>Venture Startups</li></a>
-                            <li><a href="https://twitter.com/venturestartup"><i class="fa fa-twitter"></i>/venturestartup</li></a>
-                                <li><a href="https://www.facebook.com/venturestartups"><i class="fa fa-facebook-square"></i>/venturestartups</li></a>
-                                    <li><a href="http://www.meetup.com/VentureStartups"><i class="fa fa-calendar"></i>Meetup - Venture Startups</li></a>
-                </ul>
+            <h2 class="textcenter">Videos</h2>
+            <hr class="hrNews">
+        </div>
+        <div class="portfolio_block columns3" style="display: inline-block">
+            <div class="element col-sm-4   gall branding" style="" ng-repeat="video in videos">
+                <div style="position:relative;" class="homevideo" ng-bind-html="video.video">
+                </div>
+                <div class="view project_descr ">
+                    <h3>{{video.title}}</h3>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="line6">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30453.908770256396!2d78.36975684469651!3d17.424328132155658!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0000000000000000%3A0xf8bd2d84dadf80b7!2sWestern+Plaza!5e0!3m2!1sen!2sin!4v1459114514123" width="100%" height="750" frameborder="0" style="border:0"></iframe>
-    </div>
-    <div class="container">
-        <div class="row ftext">
-            <div class="col-md-12">
-                <a id="features"></a>
-                <h3>We Care About Our Clients and Can Make Their Life Easier!</h3>
-                <p>Feel free to contact us for help with your startup </p>
-            </div>
-        </div>
-    </div>
-    <div class="line7">
         <div class="container">
-            <div class="row footer">
+            <div class="row upspacer">
+                <div class="col-md-offset-4 col-md-4 textcenter downspacer" style="margin-top: 30px;">
+                    <a class="btn btn-info btn-lg btnround" ng-click="gotovideos()"><i class="fa fa-arrow-down"></i>Load More Videos</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--contact start-->
+
+    <div id="contact" style="margin-top: 70px;">
+        <div class="line5">
+            <div class="container">
+                <div class="row Ama">
+                    <div class="col-md-12">
+                        <h3>Got a Question? We&rsquo;re Here to Help!</h3>
+                        <p>Get in touch with us</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container" style="margin-bottom:100px">
+            <div class="row">
+                <div class="col-md-7 col-xs-12 forma">
+                    <form id="ajax-contact-form" class="col-md-12 col-xs-12 row">
+                        <div class="col-md-6 col-xs-12">
+                            <input type="text" class=" name" name='name' placeholder='Name *' ng-model="formfields.name" />
+                        </div>
+                        <div class="col-md-6 col-xs-12">
+                            <input type="text" class="Email" name='email' placeholder='Email *' ng-model="formfields.email" />
+                        </div>
+                        <div class="col-md-12 col-xs-12">
+                            <select name='subject' placeholder='Subject' class="selectfield" ng-model="formfields.subject">
+                                <option value="Feedback about website">Feedback about website</option>
+                                <option value="Feedback about programs">Feedback about programs</option>
+                                <option value="Appreciation">Appreciation</option>
+                                <option value="Looking for mentoring or advice">Looking for mentoring or advice</option>
+                                <option value="Collaboration">Collaboration</option>
+                                <option value="Invitation">Invitation</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="col-md-12 col-xs-12">
+                            <textarea type="text" class="col-md-12 col-xs-12 Message" name='Message' placeholder='Message *' ng-model="formfields.message"></textarea>
+                        </div>
+
+
+
+                        <div class="cBtn col-md-12 col-xs-12" style="margin-top: 15px;">
+                            <a id="formbtnclick" class="btn btn-info btn-lg btnround" ng-click="clearform()"><i class="fa fa-eraser "></i>Clear Form</a>
+                            <a id="formbtnclick" class="btn btn-info btn-lg btnround" ng-click="sendform()" style="background-color: rgba(28, 220, 75, 0.79);"><i class="fa fa-paper-plane"></i>Send</a>
+                            <p id="note"></p>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-5 col-xs-12 cont">
+                    <ul>
+                        <li><i class="fa fa-home"></i>Flat No 319, Block A, Western Plaza,
+                            <br> OU Colony, Shaikpet, Hyderabad - 08</li>
+                        <li><i class="fa fa-phone"></i>+91 7799617889</li>
+                        <li><a href="#"><i class="fa fa-envelope"></i>contactus@venturestartups.in</a></li>
+                        <li><a href="https://www.linkedin.com/company/venture-startups"><i class="fa fa-linkedin"></i>Venture Startups</a></li>
+                        <li><a href="https://twitter.com/venturestartup"><i class="fa fa-twitter"></i>/venturestartup</a></li>
+                        <li><a href="https://www.facebook.com/venturestartups"><i class="fa fa-facebook-square"></i>/venturestartups</a></li>
+                        <li><a href="http://www.meetup.com/VentureStartups"><i class="fa fa-calendar"></i>Meetup - Venture Startups</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="line6">
+            <div class="mapoverlay"></div>
+            <iframe class="mapimage" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30453.908770256396!2d78.36975684469651!3d17.424328132155658!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0000000000000000%3A0xf8bd2d84dadf80b7!2sWestern+Plaza!5e0!3m2!1sen!2sin!4v1459114514123" width="100%" height="750" frameborder="0" style="border:0"></iframe>
+        </div>
+        <div class="container">
+            <div class="row ftext">
                 <div class="col-md-12">
-                    <h3>Subscribe for Our Newsletter!</h3>
-                    <p>Subscribe to our newsletter email to get notification about fresh news, latest promos, giveaways and free stuff from Venture Startups. Stay always up-to-date!</p>
-                    <div class="fr">
-                        <div style="display: inline-block;">
-                            <input class="col-md-6 fEmail" name='Email' placeholder='Enter Your Email' />
-                            <a href="#" class="subS">Subscribe</a>
+                    <a id="features"></a>
+                    <h3>We Care About Our Clients and Can Make Their Life Easier!</h3>
+                    <p>Feel free to contact us for help with your startup </p>
+                </div>
+            </div>
+        </div>
+        <div class="line7">
+            <div class="container">
+                <div class="row footer">
+                    <div class="col-md-12">
+                        <h3>Subscribe for Our Newsletter!</h3>
+                        <p>Subscribe to our newsletter email to get notification about fresh news, latest promos, giveaways and free stuff from Venture Startups. Stay always up-to-date!</p>
+                        <div class="fr">
+                            <div style="display: inline-block;">
+                                <input class="col-md-6 fEmail" name='Email' placeholder='Enter Your Email' ng-model="subscribes.email" />
+                                <button class="subS" ng-click="subscribe()">Subscribe</button>
+                            </div>
+
+                        </div>
+                        <div class="col-md-offset-4 col-md-5" style="color:yellow;" ng-if="subscribesuccesstext && subscribesuccesstext!=3">
+                            <h5>Congratulations! You have subscribed to our newsletter</h5></div>
+                        <div class="col-md-offset-4 col-md-5" style="color:yellow;" ng-if="!subscribesuccesstext && subscribesuccesstext!=3">
+                            <h5>You are not a registered user</h5>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="lineBlack">
-        <div class="container">
-            <div class="row downLine">
-                <div class="col-md-12 text-right">
-                    <!--input  id="searchPattern" type="search" name="pattern" value="Search the Site" onblur="if(this.value=='') {this.value='Search the Site'; }" onfocus="if(this.value =='Search the Site' ) this.value='';this.style.fontStyle='normal';" style="font-style: normal;"/-->
-                    <!--<input id="searchPattern" type="search" placeholder="Search the Site" /><i class="glyphicon glyphicon-search" style="font-size: 13px; color:#a5a5a5;" id="iS"></i>-->
-                </div>
-                <div class="col-md-6 text-left copy">
-                    <p>Copyright &copy; 2016 Pixolo Webworks. All Rights Reserved.</p>
-                </div>
-                <div class="col-md-6 text-right dm">
-                    <ul id="downMenu">
-                        <li class="active"><a href="#home">Home</a>
-                        </li>
-                        <li><a href="#about">About</a>
-                        </li>
-                        <li><a href="#events">Events</a>
-                        </li>
-                        <li><a href="#news">News</a>
-                        </li>
-                        <li><a href="#gallery">Gallery</a>
-                        </li>
-                        <li class="last"><a href="#contact">Contact</a>
-                        </li>
-                    </ul>
+        <div class="lineBlack">
+            <div class="container">
+                <div class="row downLine">
+                    <div class="col-md-12 text-right">
+                    </div>
+                    <div class="col-md-6 text-left copy">
+                        <p>Copyright &copy; 2016 Pixolo Webworks. All Rights Reserved.</p>
+                    </div>
+                    <div class="col-md-6 text-right dm footermenu">
+                        <ul id="downMenu">
+                            <li class="active"><a href="#home">Home</a>
+                            </li>
+                            <li><a href="#about">About</a>
+                            </li>
+                            <li><a href="#events">Events</a>
+                            </li>
+                            <li><a href="#news">News</a>
+                            </li>
+                            <li><a href="#gallery">Gallery</a>
+                            </li>
+                            <li><a href="#video">Videos</a>
+                            </li>
+                            <li class="last"><a href="#contact">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
 
 
 
 
+    <!--bootstrap.min.js and prettyphoto.js deleted-->
+    <script src="js/jquery.slicknav.js"></script>
 
-<script src="js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.slicknav.js"></script>
-<!--<script type="text/javascript">
-    $(document).ready(function () {
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            jQuery('#menu').slicknav();
+            console.log("initiated slick nav");
 
-        var $menu = $("#menuF");
+        });
+    </script>
 
-        $(window).scroll(function () {
-            if ($(this).scrollTop() > 100 && $menu.hasClass("default")) {
-                $menu.fadeOut('fast', function () {
-                    $(this).removeClass("default")
-                        .addClass("fixed transbg")
-                        .fadeIn('fast');
-                });
-            } else if ($(this).scrollTop() <= 100 && $menu.hasClass("fixed")) {
-                $menu.fadeOut('fast', function () {
-                    $(this).removeClass("fixed transbg")
-                        .addClass("default")
-                        .fadeIn('fast');
-                });
+    <script>
+        $(document).ready(function () {
+            $(".bhide").click(function () {
+                $(".hideObj").slideDown();
+                $(this).hide(); //.attr()
+                return false;
+            });
+            $(".bhide2").click(function () {
+                $(".container.hideObj2").slideDown();
+                $(this).hide(); // .attr()
+                return false;
+            });
+
+            $('.heart').mouseover(function () {
+                $(this).find('i').removeClass('fa-heart-o').addClass('fa-heart');
+            }).mouseout(function () {
+                $(this).find('i').removeClass('fa-heart').addClass('fa-heart-o');
+            });
+
+            function sdf_FTS(_number, _decimal, _separator) {
+                var decimal = (typeof (_decimal) != 'undefined') ? _decimal : 2;
+                var separator = (typeof (_separator) != 'undefined') ? _separator : '';
+                var r = parseFloat(_number)
+                var exp10 = Math.pow(10, decimal);
+                r = Math.round(r * exp10) / exp10;
+                rr = Number(r).toFixed(decimal).toString().split('.');
+                b = rr[0].replace(/(\d{1,3}(?=(\d{3})+(?:\.\d|\b)))/g, "\$1" + separator);
+                r = (rr[1] ? b + '.' + rr[1] : b);
+
+                return r;
             }
+
+            setTimeout(function () {
+                $('#counter').text('0');
+                $('#counter1').text('0');
+                $('#counter2').text('0');
+                setInterval(function () {
+
+                    var curval = parseInt($('#counter').text());
+                    var curval1 = parseInt($('#counter1').text().replace(' ', ''));
+                    var curval2 = parseInt($('#counter2').text());
+                    if (curval <= 12800) {
+                        $('#counter').text(curval + 5);
+                    }
+                    if (curval1 <= 26) {
+                        $('#counter1').text(sdf_FTS((curval1 + 1), 0, ' '));
+                    }
+                    if (curval2 <= 54) {
+                        $('#counter2').text(curval2 + 1);
+                    }
+                }, 2);
+
+            }, 500);
         });
-    });
-    //jQuery
-</script>-->
-<script>
-    $(document).ready(function () {
-        $(".bhide").click(function () {
-            $(".hideObj").slideDown();
-            $(this).hide(); //.attr()
-            return false;
+    </script>
+
+
+
+    <script>
+        window.sr = ScrollReveal({
+            reset: true
         });
-        $(".bhide2").click(function () {
-            $(".container.hideObj2").slideDown();
-            $(this).hide(); // .attr()
-            return false;
-        });
+        sr.reveal('.cBusiness');
+        sr.reveal('.centPic');
+        sr.reveal('.wwa');
+        //sr.reveal('.member');
 
-        $('.heart').mouseover(function () {
-            $(this).find('i').removeClass('fa-heart-o').addClass('fa-heart');
-        }).mouseout(function () {
-            $(this).find('i').removeClass('fa-heart').addClass('fa-heart-o');
-        });
-
-        function sdf_FTS(_number, _decimal, _separator) {
-            var decimal = (typeof (_decimal) != 'undefined') ? _decimal : 2;
-            var separator = (typeof (_separator) != 'undefined') ? _separator : '';
-            var r = parseFloat(_number)
-            var exp10 = Math.pow(10, decimal);
-            r = Math.round(r * exp10) / exp10;
-            rr = Number(r).toFixed(decimal).toString().split('.');
-            b = rr[0].replace(/(\d{1,3}(?=(\d{3})+(?:\.\d|\b)))/g, "\$1" + separator);
-            r = (rr[1] ? b + '.' + rr[1] : b);
-
-            return r;
-        }
-
-        setTimeout(function () {
-            $('#counter').text('0');
-            $('#counter1').text('0');
-            $('#counter2').text('0');
-            setInterval(function () {
-
-                var curval = parseInt($('#counter').text());
-                var curval1 = parseInt($('#counter1').text().replace(' ', ''));
-                var curval2 = parseInt($('#counter2').text());
-                if (curval <= 12800) {
-                    $('#counter').text(curval + 5);
+        /*menu*/
+        function calculateScroll() {
+            var contentTop = [];
+            var contentBottom = [];
+            var winTop = $(window).scrollTop();
+            var rangeTop = 200;
+            var rangeBottom = 500;
+            $('.navmenu').find('a').each(function () {
+                contentTop.push($($(this).attr('href')).offset().top);
+                contentBottom.push($($(this).attr('href')).offset().top + $($(this).attr('href')).height());
+            })
+            $.each(contentTop, function (i) {
+                if (winTop > contentTop[i] - rangeTop && winTop < contentBottom[i] - rangeBottom) {
+                    $('.navmenu li')
+                        .removeClass('active')
+                        .eq(i).addClass('active');
                 }
-                if (curval1 <= 26) {
-                    $('#counter1').text(sdf_FTS((curval1 + 1), 0, ' '));
-                }
-                if (curval2 <= 54) {
-                    $('#counter2').text(curval2 + 1);
-                }
-            }, 2);
+            })
+        };
 
-        }, 500);
-    });
-</script>
-<script type="text/javascript">
-    jQuery(document).ready(function () {
-        jQuery('#menu').slicknav();
-        console.log("initiated slick nav");
+        $(document).ready(function () {
 
-    });
-</script>
-
-
-<script>
-    window.sr = ScrollReveal({
-        reset: true
-    });
-    sr.reveal('.cBusiness');
-    sr.reveal('.centPic');
-    sr.reveal('.wwa');
-    //sr.reveal('.member');
-
-    /*menu*/
-    function calculateScroll() {
-        var contentTop = [];
-        var contentBottom = [];
-        var winTop = $(window).scrollTop();
-        var rangeTop = 200;
-        var rangeBottom = 500;
-        $('.navmenu').find('a').each(function () {
-            contentTop.push($($(this).attr('href')).offset().top);
-            contentBottom.push($($(this).attr('href')).offset().top + $($(this).attr('href')).height());
-        })
-        $.each(contentTop, function (i) {
-            if (winTop > contentTop[i] - rangeTop && winTop < contentBottom[i] - rangeBottom) {
-                $('.navmenu li')
-                    .removeClass('active')
-                    .eq(i).addClass('active');
-            }
-        })
-    };
-
-    $(document).ready(function () {
-        calculateScroll();
-        $(window).scroll(function (event) {
             calculateScroll();
+            $(window).scroll(function (event) {
+                calculateScroll();
+            });
+
+            $('.navmenu ul li a').click(function () {
+                $('html, body').animate({
+                    scrollTop: $(this.hash).offset().top - 80
+                }, 800);
+                return false;
+            });
+
+            $('.footermenu ul li a').click(function () {
+                $('html, body').animate({
+                    scrollTop: $(this.hash).offset().top - 80
+                }, 800);
+                return false;
+            });
+
+            $('.slicknav_menu ul li a').click(function () {
+                $('html, body').animate({
+                    scrollTop: $(this.hash).offset().top - 80
+                }, 800);
+                return false;
+            });
         });
-        $('.navmenu ul li a').click(function () {
-            $('html, body').animate({
-                scrollTop: $(this.hash).offset().top - 80
-            }, 800);
-            return false;
-        });
-    });
-</script>
-<script type="text/javascript" charset="utf-8">
+    </script>
+    <!--<script type="text/javascript" charset="utf-8">
     jQuery(document).ready(function () {
         jQuery(".pretty a[rel^='prettyPhoto']").prettyPhoto({
             animation_speed: 'normal',
@@ -852,14 +872,5 @@ Hyderabad.</h4>
             autoplay_slideshow: true,
             social_tools: ''
         });
-
-
-
-
-
-
-
-
-
     });
-</script>
+</script>-->
